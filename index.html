@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhiskeyMusikk – Rankings</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%23111' stroke='%23fff' stroke-width='6'/><circle cx='50' cy='50' r='16' fill='%23f59e0b'/><circle cx='50' cy='50' r='5' fill='%23111'/></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="min-h-screen antialiased bg-neutral-100 text-neutral-900 dark:bg-[#111111] dark:text-[#eaeaea] transition-colors duration-200">
+
+    <div class="max-w-4xl mx-auto px-4 py-10">
+        
+        <header class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b border-neutral-300 dark:border-neutral-800">
+            <div>
+                <div class="flex items-center gap-2.5">
+                    <h1 class="text-2xl font-bold tracking-tight text-neutral-900 dark:text-white">WhiskeyMusikk Rankings</h1>
+                    <span class="px-2 py-0.5 text-xs font-medium bg-neutral-200 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 rounded">Ranked by Bennett</span>
+                </div>
+                <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-1">Album & track ratings archive</p>
+            </div>
+            <div class="flex items-center gap-3 text-xs font-medium">
+                <div class="relative group">
+                    <button class="px-3 py-1.5 bg-neutral-200 hover:bg-neutral-300 dark:bg-neutral-800 dark:hover:bg-neutral-700 text-neutral-800 dark:text-neutral-200 rounded border border-neutral-300 dark:border-neutral-700 transition flex items-center gap-1">
+                        Download ▾
+                    </button>
+                    <div class="absolute right-0 pt-1.5 w-40 hidden group-hover:block z-40">
+                        <div class="bg-white dark:bg-[#222222] border border-neutral-300 dark:border-neutral-700 rounded shadow-lg py-1 text-xs">
+                            <button onclick="exportCSV()" class="w-full text-left px-3 py-1.5 hover:bg-neutral-100 dark:hover:bg-neutral-700 text-neutral-800 dark:text-neutral-200">
+                                Spreadsheet (.CSV)
+                            </button>
+                            <button onclick="exportJSON()" class="w-full text-left px-3 py-1.5 hover:bg-neutral-100 dark:hover:bg-neutral-700 text-neutral-800 dark:text-neutral-200">
+                                Raw Data (.JSON)
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="https://www.youtube.com/@WhiskeyMusikk" target="_blank" class="px-3 py-1.5 bg-neutral-900 hover:bg-neutral-700 text-white dark:bg-white dark:hover:bg-neutral-200 dark:text-black font-semibold rounded transition">
+                    YouTube Channel
+                </a>
+            </div>
+        </header>
+
+        <div class="flex flex-col sm:flex-row gap-3 my-6">
+            <input id="searchInput" type="text" placeholder="Search album, artist, or track..." 
+                class="flex-grow px-3.5 py-2 bg-white dark:bg-[#1a1a1a] border border-neutral-300 dark:border-neutral-800 rounded text-sm text-neutral-900 dark:text-white placeholder-neutral-400 dark:placeholder-neutral-500 focus:outline-none focus:border-neutral-500">
+            
+            <select id="genreFilter" class="px-3 py-2 bg-white dark:bg-[#1a1a1a] border border-neutral-300 dark:border-neutral-800 rounded text-sm text-neutral-800 dark:text-neutral-200 focus:outline-none focus:border-neutral-500">
+                <option value="all">All Genres</option>
+            </select>
+
+            <select id="albumSort" class="px-3 py-2 bg-white dark:bg-[#1a1a1a] border border-neutral-300 dark:border-neutral-800 rounded text-sm text-neutral-800 dark:text-neutral-200 focus:outline-none focus:border-neutral-500">
+                <option value="date-desc">Date: Newest</option>
+                <option value="date-asc">Date: Oldest</option>
+                <option value="score-desc">Album Score: High to Low</option>
+                <option value="score-asc">Album Score: Low to High</option>
+                <option value="avg-desc">Track Avg: High to Low</option>
+            </select>
+        </div>
+
+        <div id="albumsContainer" class="space-y-3"></div>
+
+    </div>
+
+    <button onclick="toggleTheme()" id="themeToggleBtn" class="fixed bottom-5 left-5 z-50 px-3.5 py-2 rounded-full bg-white dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 border border-neutral-300 dark:border-neutral-700 shadow-md text-xs font-medium hover:bg-neutral-100 dark:hover:bg-neutral-700 transition flex items-center gap-2">
+        <span id="themeIcon">☀️</span>
+        <span id="themeText">Light Mode</span>
+    </button>
+
+    <script>
+        const rawData = {
+            "albums": [
+                {
+                    "album_clean": "Eternal Atake",
+                    "artist_clean": "Lil Uzi Vert",
+                    "album_score": "9",
+                    "avg_song_score": null,
+                    "genres": ["trap", "pop rap"],
+                    "media_links": {
+                        "Apple Music": "https://geo.music.apple.com/us/album/eternal-atake/1501843464",
+                        "Spotify": "https://open.spotify.com/album/7IyoGB8J31fvQDwGtHAq9m",
+                        "Soundcloud": "https://soundcloud.com/liluzivert/sets/eternal-atake-779780786"
+                    },
+                    "year": "2020",
+                    "youtube_url": "https://www.youtube.com/watch?v=dqE1m6uxNTU",
+                    "video_date": "2026-09-18",
+                    "cover_url": "https://d1j3ls2jacen4o.cloudfront.net/thumbnails/685fb326b90bc0b3b6a9f45e.jpg",
+                    "tracks": [
+                        { "track_num": 1, "title": "Baby Pluto", "score": "Really Good" },
+                        { "track_num": 2, "title": "Lo Mein", "score": "Good" },
+                        { "track_num": 3, "title": "Silly Watch", "score": "Hard" },
+                        { "track_num": 4, "title": "POP", "score": "Skip" },
+                        { "track_num": 5, "title": "You Better Move", "score": "N/A" },
+                        { "track_num": 6, "title": "Homecoming", "score": "Hard" },
+                        { "track_num": 7, "title": "I'm Sorry", "score": "Mid" },
+                        { "track_num": 8, "title": "Celebration Station", "score": "Favorite" },
+                        { "track_num": 9, "title": "Bigger Than Life", "score": "Really Good" },
+                        { "track_num": 10, "title": "Chrome Heart Tags", "score": "Good" },
+                        { "track_num": 11, "title": "Bust Me", "score": "Skip" },
+                        { "track_num": 12, "title": "Prices", "score": "Good" },
+                        { "track_num": 13, "title": "Urgency", "score": "Mid" },
+                        { "track_num": 14, "title": "Venetia", "score": "N/A" },
+                        { "track_num": 15, "title": "Secure The Bag", "score": "N/A" },
+                        { "track_num": 16, "title": "P2", "score": "Good" },
+                        { "track_num": 17, "title": "Futsal Shuffle 2020 - Bonus Track", "score": "N/A" },
+                        { "track_num": 18, "title": "That Way - Bonus Track", "score": "N/A" }
+                    ]
+                },
+                {
+                    "album_clean": "ASTROWORLD",
+                    "artist_clean": "Travis Scott",
+                    "album_score": "9",
+                    "avg_song_score": "7.4",
+                    "genres": ["trap", "pop rap"],
+                    "media_links": {
+                        "Apple Music": "https://geo.music.apple.com/us/album/astroworld/1421241217",
+                        "Spotify": "https://open.spotify.com/album/41GuZcammIkupMPKH2OJ6I",
+                        "Soundcloud": "https://soundcloud.com/travisscott-2/sets/astroworld-3"
+                    },
+                    "year": "2018",
+                    "youtube_url": "https://www.youtube.com/watch?v=eL4Y9HaU5JI",
+                    "video_date": "2026-09-25",
+                    "cover_url": "https://d1j3ls2jacen4o.cloudfront.net/thumbnails/685fb326b90bc0b3b6a9ef86.jpg",
+                    "tracks": [
+                        { "track_num": 1, "title": "STARGAZING", "score": "7" },
+                        { "track_num": 2, "title": "CAROUSEL", "score": "6" },
+                        { "track_num": 3, "title": "SICKO MODE", "score": "9" },
+                        { "track_num": 4, "title": "R.I.P. SCREW", "score": "8" },
+                        { "track_num": 5, "title": "STOP TRYING TO BE GOD", "score": "9" },
+                        { "track_num": 6, "title": "NO BYSTANDERS", "score": "10" },
+                        { "track_num": 7, "title": "SKELETONS", "score": "6" },
+                        { "track_num": 8, "title": "WAKE UP", "score": "7" },
+                        { "track_num": 9, "title": "5% TINT", "score": "5" },
+                        { "track_num": 10, "title": "NC-17", "score": "6" },
+                        { "track_num": 11, "title": "ASTROTHUNDER", "score": "7" },
+                        { "track_num": 12, "title": "YOSEMITE", "score": "10" },
+                        { "track_num": 13, "title": "CAN'T SAY", "score": "4" },
+                        { "track_num": 14, "title": "WHO? WHAT!", "score": "8" },
+                        { "track_num": 15, "title": "BUTTERFLY EFFECT", "score": "9" },
+                        { "track_num": 16, "title": "HOUSTONFORNICATION", "score": "8" },
+                        { "track_num": 17, "title": "COFFEE BEAN", "score": "6" }
+                    ]
+                },
+                {
+                    "album_clean": "Graduation",
+                    "artist_clean": "Kanye West",
+                    "album_score": "7",
+                    "avg_song_score": "7.1",
+                    "genres": ["pop rap"],
+                    "media_links": {
+                        "Apple Music": "https://music.apple.com/us/album/graduation/1451901307",
+                        "Spotify": "https://open.spotify.com/album/4SZko61aMnmgvNhfhgTuD3",
+                        "Soundcloud": "https://soundcloud.com/kanyewest/sets/graduation-24"
+                    },
+                    "year": "2007",
+                    "youtube_url": "https://www.youtube.com/watch?v=TGG2hstIaHI",
+                    "video_date": "2026-09-25",
+                    "cover_url": "https://cdn.sonemic.net/i/600/w/26c23a7843ad12cc5dab5e28e26aa4aa/14510684/kanye-west-graduation-Cover-Art.jpg",
+                    "tracks": [
+                        { "track_num": 1, "title": "Good Morning", "score": "4" },
+                        { "track_num": 2, "title": "Champion", "score": "Good" },
+                        { "track_num": 3, "title": "Stronger", "score": "10" },
+                        { "track_num": 4, "title": "I Wonder", "score": "Good" },
+                        { "track_num": 5, "title": "Good Life", "score": "Good" },
+                        { "track_num": 6, "title": "Can't Tell Me Nothing", "score": "Good" },
+                        { "track_num": 7, "title": "Barry Bonds", "score": "N/A" },
+                        { "track_num": 8, "title": "Drunk and Hot Girls", "score": "N/A" },
+                        { "track_num": 9, "title": "Flashing Lights", "score": "8.5" },
+                        { "track_num": 10, "title": "Everything I Am", "score": "6.5" },
+                        { "track_num": 11, "title": "The Glory", "score": "4.5" },
+                        { "track_num": 12, "title": "Homecoming", "score": "9" },
+                        { "track_num": 13, "title": "Big Brother", "score": "N/A" },
+                        { "track_num": 14, "title": "Good Night", "score": "N/A" }
+                    ]
+                },
+                {
+                    "album_clean": "Playboi Carti",
+                    "artist_clean": "Playboi Carti",
+                    "album_score": "7.5",
+                    "avg_song_score": "6.5",
+                    "genres": ["trap", "cloud rap"],
+                    "media_links": {
+                        "Apple Music": "https://music.apple.com/us/album/playboi-carti/1440887343",
+                        "Spotify": "https://open.spotify.com/album/4rJgzzfFHAVFhCSt2P4I3j",
+                        "Soundcloud": "https://soundcloud.com/playboicarti/sets/playboi-carti"
+                    },
+                    "year": "2017",
+                    "youtube_url": "https://www.youtube.com/watch?v=dkpWFmuDI3M",
+                    "video_date": "2026-09-29",
+                    "cover_url": "https://cdn.sonemic.net/i/600/w/e7b7d78ed280fe4eaa31d857e742f966/8417412/playboi-carti-playboi-carti-Cover-Art.jpg",
+                    "tracks": [
+                        { "track_num": 1, "title": "Location", "score": "Good" },
+                        { "track_num": 2, "title": "Magnolia", "score": "Good" },
+                        { "track_num": 3, "title": "Lookin", "score": "Good" },
+                        { "track_num": 4, "title": "wokeuplikethis*", "score": "Good" },
+                        { "track_num": 5, "title": "Let It Go", "score": "5" },
+                        { "track_num": 6, "title": "Half & Half", "score": "Good" },
+                        { "track_num": 7, "title": "New Choppa", "score": "Good" },
+                        { "track_num": 8, "title": "Other Shit", "score": "N/A" },
+                        { "track_num": 9, "title": "NO. 9", "score": "6" },
+                        { "track_num": 10, "title": "dothatshit!", "score": "8" },
+                        { "track_num": 11, "title": "Lame Ni**az", "score": "4.5" },
+                        { "track_num": 12, "title": "Yah Mean", "score": "5.5" },
+                        { "track_num": 13, "title": "Flex", "score": "10" },
+                        { "track_num": 14, "title": "Kelly K", "score": "Good" },
+                        { "track_num": 15, "title": "Had 2", "score": "N/A" }
+                    ]
+                },
+                {
+                    "album_clean": "Goodbye & Good Riddance",
+                    "artist_clean": "Juice WRLD",
+                    "album_score": "9.5",
+                    "avg_song_score": "9.1",
+                    "genres": ["emo rap", "trap", "pop rap"],
+                    "media_links": {
+                        "Apple Music": "https://geo.music.apple.com/us/album/goodbye-good-riddance/1407165109",
+                        "Spotify": "https://open.spotify.com/album/6tkjU4Umpo79wwkgPMV3nZ",
+                        "Soundcloud": "https://soundcloud.com/uiceheidd/sets/goodbyegoodriddance"
+                    },
+                    "year": "2018",
+                    "youtube_url": "https://www.youtube.com/watch?v=bMF3RojbO4Y",
+                    "video_date": "2026-10-02",
+                    "cover_url": "https://d1j3ls2jacen4o.cloudfront.net/thumbnails/685fb326b90bc0b3b6a9f2fe.jpg",
+                    "tracks": [
+                        { "track_num": 1, "title": "Intro", "score": "N/A" },
+                        { "track_num": 2, "title": "All Girls Are The Same", "score": "9" },
+                        { "track_num": 3, "title": "Lucid Dreams", "score": "9.5" },
+                        { "track_num": 4, "title": "Wasted", "score": "10" },
+                        { "track_num": 5, "title": "Armed And Dangerous", "score": "9" },
+                        { "track_num": 6, "title": "Black & White", "score": "10" },
+                        { "track_num": 7, "title": "Lean Wit Me", "score": "9.5" },
+                        { "track_num": 8, "title": "I'll Be Fine", "score": "8" },
+                        { "track_num": 9, "title": "Used To", "score": "9.5" },
+                        { "track_num": 10, "title": "Candles", "score": "8.5" },
+                        { "track_num": 11, "title": "Scared Of Love", "score": "8.5" },
+                        { "track_num": 12, "title": "Hurt Me", "score": "8" },
+                        { "track_num": 13, "title": "I'm Still", "score": "9" },
+                        { "track_num": 14, "title": "End Of The Road", "score": "9.75" },
+                        { "track_num": 15, "title": "Long Gone", "score": "8" },
+                        { "track_num": 16, "title": "Betrayal - Skit", "score": "N/A" },
+                        { "track_num": 17, "title": "Karma - Skit", "score": "N/A" },
+                        { "track_num": 18, "title": "Lucid Dreams - Remix", "score": "10" }
+                    ]
+                },
+                {
+                    "album_clean": "Discovery",
+                    "artist_clean": "Daft Punk",
+                    "album_score": "9",
+                    "avg_song_score": "8.5",
+                    "genres": ["french house"],
+                    "media_links": {
+                        "Apple Music": "https://geo.music.apple.com/us/album/discovery/697194953",
+                        "Spotify": "https://open.spotify.com/album/2noRn2Aes5aoNVsU6iWThc",
+                        "Soundcloud": "https://soundcloud.com/daftpunkofficialmusic/sets/discovery-8"
+                    },
+                    "year": "2001",
+                    "youtube_url": "https://www.youtube.com/watch?v=Qy5tcpJ0Yck",
+                    "video_date": "2026-10-08",
+                    "cover_url": "https://d1j3ls2jacen4o.cloudfront.net/thumbnails/685fb326b90bc0b3b6a9e97c.png",
+                    "tracks": [
+                        { "track_num": 1, "title": "One More Time", "score": "9" },
+                        { "track_num": 2, "title": "Aerodynamic", "score": "Good" },
+                        { "track_num": 3, "title": "Digital Love", "score": "9" },
+                        { "track_num": 4, "title": "Harder, Better, Faster, Stronger", "score": "8.5" },
+                        { "track_num": 5, "title": "Crescendolls", "score": "6.5" },
+                        { "track_num": 6, "title": "Nightvision", "score": "7" },
+                        { "track_num": 7, "title": "Superheroes", "score": "7.75" },
+                        { "track_num": 8, "title": "High Life", "score": "6.5" },
+                        { "track_num": 9, "title": "Something About Us", "score": "10" },
+                        { "track_num": 10, "title": "Voyager", "score": "8.5" },
+                        { "track_num": 11, "title": "Veridis Quo", "score": "9" },
+                        { "track_num": 12, "title": "Short Circuit", "score": "9.5" },
+                        { "track_num": 13, "title": "Face to Face", "score": "9.5" },
+                        { "track_num": 14, "title": "Too Long", "score": "Good" }
+                    ]
+                },
+                {
+                    "album_clean": "HEROES & VILLAINS",
+                    "artist_clean": "Metro Boomin",
+                    "album_score": "9.5",
+                    "avg_song_score": "8.5",
+                    "genres": ["trap"],
+                    "media_links": {
+                        "Apple Music": "https://geo.music.apple.com/ca/album/heroes-villains/1657271960",
+                        "Spotify": "https://open.spotify.com/album/7txGsnDSqVMoRl6RQ9XyZP",
+                        "Soundcloud": "https://soundcloud.com/metroboomin/sets/heroes-villains-3"
+                    },
+                    "year": "2022",
+                    "youtube_url": "https://www.youtube.com/watch?v=WvKFPOaxxPg",
+                    "video_date": "2026-10-09",
+                    "cover_url": "https://d1j3ls2jacen4o.cloudfront.net/thumbnails/685fb326b90bc0b3b6a9ee88.jpg",
+                    "tracks": [
+                        { "track_num": 1, "title": "On Time", "score": "6.5" },
+                        { "track_num": 2, "title": "Superhero (Heroes & Villains)", "score": "8.5" },
+                        { "track_num": 3, "title": "Too Many Nights", "score": "9.5" },
+                        { "track_num": 4, "title": "Raindrops (Insane)", "score": "10" },
+                        { "track_num": 5, "title": "Umbrella", "score": "N/A" },
+                        { "track_num": 6, "title": "Trance", "score": "8.5" },
+                        { "track_num": 7, "title": "Around Me", "score": "7.5" },
+                        { "track_num": 8, "title": "Metro Spider", "score": "10" },
+                        { "track_num": 9, "title": "I Can't Save You (Interlude)", "score": "N/A" },
+                        { "track_num": 10, "title": "Creepin'", "score": "7.5" },
+                        { "track_num": 11, "title": "Niagara Falls (Foot or 2)", "score": "9" },
+                        { "track_num": 12, "title": "Walk Em Down (Don't Kill Civilians)", "score": "Skip" },
+                        { "track_num": 13, "title": "Lock On Me", "score": "N/A" },
+                        { "track_num": 14, "title": "Feel The Fiyaaaah", "score": "7" },
+                        { "track_num": 15, "title": "All The Money (Bonus)", "score": "Good" }
+                    ]
+                },
+                {
+                    "album_clean": "UTOPIA",
+                    "artist_clean": "Travis Scott",
+                    "album_score": "8.5",
+                    "avg_song_score": "7.8",
+                    "genres": ["experimental hip hop", "trap"],
+                    "media_links": {
+                        "Apple Music": "https://music.apple.com/us/album/utopia/1699712635",
+                        "Spotify": "https://open.spotify.com/album/18NOKLkZETa4sWwLMIm0UZ",
+                        "Soundcloud": "https://soundcloud.com/travisscott-2/sets/utopia"
+                    },
+                    "year": "2023",
+                    "youtube_url": "https://www.youtube.com/watch?v=moyR7s37y9k",
+                    "video_date": "2026-10-14",
+                    "cover_url": "https://cdn.sonemic.net/i/600/w/8d76157623fe120930c2438ae7ef038d/11177958/travis-scott-utopia-Cover-Art.png",
+                    "tracks": [
+                        { "track_num": 1, "title": "HYAENA", "score": "7.5" },
+                        { "track_num": 2, "title": "THANK GOD", "score": "6.5" },
+                        { "track_num": 3, "title": "MODERN JAM", "score": "6" },
+                        { "track_num": 4, "title": "MY EYES", "score": "10" },
+                        { "track_num": 5, "title": "GOD'S COUNTRY", "score": "N/A" },
+                        { "track_num": 6, "title": "SIRENS", "score": "9" },
+                        { "track_num": 7, "title": "MELTDOWN", "score": "9.5" },
+                        { "track_num": 8, "title": "FE!N", "score": "7" },
+                        { "track_num": 9, "title": "DELRESTO (ECHOES)", "score": "5" },
+                        { "track_num": 10, "title": "I KNOW ?", "score": "9.5" },
+                        { "track_num": 11, "title": "TOPIA TWINS", "score": "10" },
+                        { "track_num": 12, "title": "CIRCUS MAXIMUS", "score": "8" },
+                        { "track_num": 13, "title": "PARASAIL", "score": "4" },
+                        { "track_num": 14, "title": "SKITZO", "score": "9.5" },
+                        { "track_num": 15, "title": "LOST FOREVER", "score": "Mid" },
+                        { "track_num": 16, "title": "LOOOVE", "score": "6" },
+                        { "track_num": 17, "title": "K-POP", "score": "6.5" },
+                        { "track_num": 18, "title": "TELEKINESIS", "score": "9" },
+                        { "track_num": 19, "title": "TIL FURTHER NOTICE", "score": "10" }
+                    ]
+                },
+                {
+                    "album_clean": "good kid, m.A.A.d city",
+                    "artist_clean": "Kendrick Lamar",
+                    "album_score": "10",
+                    "avg_song_score": "8.9",
+                    "genres": ["conscious hip hop"],
+                    "media_links": {
+                        "Apple Music": "https://geo.music.apple.com/us/album/good-kid-m-a-a-d-city/1471263898",
+                        "Spotify": "https://open.spotify.com/album/0Oq3mWfexhsjUh0aNNBB5u",
+                        "Soundcloud": "https://soundcloud.com/interscope/sets/kendrick-lamar-good-kid-m-a-a"
+                    },
+                    "year": "2012",
+                    "youtube_url": "https://www.youtube.com/watch?v=4kxokTaGAdU",
+                    "video_date": "2026-10-16",
+                    "cover_url": "https://cdn.sonemic.net/i/600/w/3342322bda7a56b38f75478c4b43a209/6922692/kendrick-lamar-good-kid-m_a_a_d-city-Cover-Art.jpg",
+                    "tracks": [
+                        { "track_num": 1, "title": "Sherane a.k.a Master Splinter's Daughter", "score": "8" },
+                        { "track_num": 2, "title": "Bitch, Don't Kill My Vibe", "score": "10" },
+                        { "track_num": 3, "title": "Backseat Freestyle", "score": "9" },
+                        { "track_num": 4, "title": "The Art of Peer Pressure", "score": "8" },
+                        { "track_num": 5, "title": "Money Trees", "score": "10" },
+                        { "track_num": 6, "title": "Poetic Justice", "score": "9.5" },
+                        { "track_num": 7, "title": "good kid", "score": "9.5" },
+                        { "track_num": 8, "title": "m.A.A.d city", "score": "9" },
+                        { "track_num": 9, "title": "Swimming Pools (Drank)", "score": "10" },
+                        { "track_num": 10, "title": "Sing About Me, I'm Dying of Thirst", "score": "8" },
+                        { "track_num": 11, "title": "Real", "score": "7.5" },
+                        { "track_num": 12, "title": "Compton", "score": "7.5" },
+                        { "track_num": 13, "title": "Bitch, Don't Kill My Vibe - Remix", "score": "9.5" }
+                    ]
+                }
+            ]
+        };
+
+        const openStates = {};
+        const trackSortModes = {};
+
+        function toggleTheme() {
+            const html = document.documentElement;
+            const isDark = html.classList.toggle("dark");
+            document.getElementById("themeIcon").textContent = isDark ? "☀️" : "🌙";
+            document.getElementById("themeText").textContent = isDark ? "Light Mode" : "Dark Mode";
+        }
+
+        function getSortableScore(scoreStr) {
+            if (!scoreStr) return -1;
+            const num = parseFloat(scoreStr);
+            if (!isNaN(num)) return num;
+            const map = {
+                "favorite": 10.1,
+                "hard": 9.2,
+                "really good": 8.5,
+                "good": 7.5,
+                "mid": 5.0,
+                "skip": 2.0,
+                "n/a": -1
+            };
+            return map[scoreStr.toLowerCase().trim()] ?? -1;
+        }
+
+        function computeAverageTrackScore(tracks) {
+            const numericScores = tracks
+                .map(t => parseFloat(t.score))
+                .filter(n => !isNaN(n));
+            if (numericScores.length === 0) return null;
+            const sum = numericScores.reduce((a, b) => a + b, 0);
+            return (sum / numericScores.length).toFixed(1);
+        }
+
+        function formatScoreDisplay(scoreStr) {
+            if (!scoreStr || scoreStr.trim() === "") return "N/A";
+            const num = parseFloat(scoreStr);
+            if (!isNaN(num)) return `${scoreStr}/10`;
+            return scoreStr;
+        }
+
+        function getScoreColor(scoreStr) {
+            if (!scoreStr || scoreStr.trim() === "") return "text-neutral-500";
+            const num = parseFloat(scoreStr);
+            if (!isNaN(num)) {
+                if (num >= 9.0) return "text-emerald-600 dark:text-emerald-400 font-semibold";
+                if (num >= 7.5) return "text-green-600 dark:text-green-400";
+                if (num >= 6.0) return "text-amber-600 dark:text-yellow-400";
+                return "text-red-600 dark:text-red-400";
+            }
+            const lower = scoreStr.toLowerCase().trim();
+            if (lower === "favorite" || lower === "hard") return "text-emerald-600 dark:text-emerald-400 font-semibold";
+            if (lower === "really good" || lower === "good") return "text-green-600 dark:text-green-400";
+            if (lower === "mid") return "text-amber-600 dark:text-yellow-400";
+            if (lower === "skip") return "text-red-600 dark:text-red-400";
+            return "text-neutral-400 dark:text-neutral-500";
+        }
+
+        function prepareData() {
+            rawData.albums.forEach((album, idx) => {
+                album._uid = `album_${idx}`;
+                album.avg_song_score = computeAverageTrackScore(album.tracks);
+                if (!trackSortModes[album._uid]) {
+                    trackSortModes[album._uid] = "chrono";
+                }
+            });
+        }
+
+        function populateGenres() {
+            const genreSet = new Set();
+            rawData.albums.forEach(a => {
+                a.genres.forEach(g => {
+                    if (g && g.trim()) genreSet.add(g.toLowerCase().trim());
+                });
+            });
+            const select = document.getElementById("genreFilter");
+            Array.from(genreSet).sort().forEach(g => {
+                const opt = document.createElement("option");
+                opt.value = g;
+                opt.textContent = g;
+                select.appendChild(opt);
+            });
+        }
+
+        function toggleDropdown(uid) {
+            openStates[uid] = !openStates[uid];
+            renderAlbums();
+        }
+
+        function setTrackSort(uid, mode) {
+            trackSortModes[uid] = mode;
+            renderAlbums();
+        }
+
+        function renderAlbums() {
+            const search = document.getElementById("searchInput").value.toLowerCase().trim();
+            const genre = document.getElementById("genreFilter").value;
+            const sortMode = document.getElementById("albumSort").value;
+
+            let filtered = rawData.albums.filter(album => {
+                const matchAlbum = album.album_clean.toLowerCase().includes(search);
+                const matchArtist = album.artist_clean.toLowerCase().includes(search);
+                const matchGenre = album.genres.some(g => g.toLowerCase().includes(search));
+                const matchTrack = album.tracks.some(t => t.title.toLowerCase().includes(search));
+                const matchesSearch = !search || matchAlbum || matchArtist || matchGenre || matchTrack;
+                const matchesGenre = genre === "all" || album.genres.some(g => g.toLowerCase().trim() === genre);
+                return matchesSearch && matchesGenre;
+            });
+
+            filtered.sort((a, b) => {
+                if (sortMode === "date-desc") return new Date(b.video_date) - new Date(a.video_date);
+                if (sortMode === "date-asc") return new Date(a.video_date) - new Date(b.video_date);
+                if (sortMode === "score-desc") return (parseFloat(b.album_score) || 0) - (parseFloat(a.album_score) || 0);
+                if (sortMode === "score-asc") return (parseFloat(a.album_score) || 0) - (parseFloat(b.album_score) || 0);
+                if (sortMode === "avg-desc") return (parseFloat(b.avg_song_score) || 0) - (parseFloat(a.avg_song_score) || 0);
+                return 0;
+            });
+
+            const container = document.getElementById("albumsContainer");
+
+            if (filtered.length === 0) {
+                container.innerHTML = `<div class="py-12 text-center text-sm text-neutral-500">No results found.</div>`;
+                return;
+            }
+
+            container.innerHTML = filtered.map(album => {
+                const isOpen = !!openStates[album._uid];
+                const tSort = trackSortModes[album._uid] || "chrono";
+                const sortedTracks = [...album.tracks].sort((t1, t2) => {
+                    if (tSort === "chrono") return t1.track_num - t2.track_num;
+                    if (tSort === "rating-desc") {
+                        const diff = getSortableScore(t2.score) - getSortableScore(t1.score);
+                        return diff !== 0 ? diff : t1.track_num - t2.track_num;
+                    }
+                    if (tSort === "rating-asc") {
+                        const s1 = getSortableScore(t1.score);
+                        const s2 = getSortableScore(t2.score);
+                        if (s1 === -1 && s2 === -1) return t1.track_num - t2.track_num;
+                        if (s1 === -1) return 1;
+                        if (s2 === -1) return -1;
+                        return s1 - s2;
+                    }
+                    return 0;
+                });
+
+                const avgDisplay = album.avg_song_score ? `${album.avg_song_score}/10` : "–";
+
+                return `
+                    <div class="bg-white dark:bg-[#181818] border border-neutral-300 dark:border-neutral-800 rounded">
+                        <div class="p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                            
+                            <div class="flex items-center gap-4 min-w-0">
+                                <img src="${album.cover_url}" alt="${album.album_clean}" class="w-16 h-16 rounded object-cover flex-shrink-0 bg-neutral-200 dark:bg-neutral-900">
+                                <div class="min-w-0">
+                                    <h2 class="text-base font-semibold text-neutral-900 dark:text-white truncate">${album.album_clean}</h2>
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400 truncate">${album.artist_clean} <span class="text-neutral-400 dark:text-neutral-600">•</span> ${album.year}</p>
+                                    <div class="flex flex-wrap items-center gap-2 mt-1 text-xs text-neutral-500">
+                                        <span>${album.genres.join(", ")}</span>
+                                        <span>•</span>
+                                        <span>Reviewed ${album.video_date}</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-wrap items-center justify-between sm:justify-end gap-4 pt-3 sm:pt-0 border-t sm:border-t-0 border-neutral-200 dark:border-neutral-800/80">
+                                
+                                <div class="flex items-center gap-4 text-right">
+                                    <div>
+                                        <div class="text-[11px] text-neutral-500 uppercase">Album</div>
+                                        <div class="text-sm font-bold text-neutral-900 dark:text-white">${album.album_score}/10</div>
+                                    </div>
+                                    <div>
+                                        <div class="text-[11px] text-neutral-500 uppercase">Track Avg</div>
+                                        <div class="text-sm font-medium text-neutral-700 dark:text-neutral-300">${avgDisplay}</div>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center gap-2 text-xs">
+                                    <a href="${album.youtube_url}" target="_blank" class="px-2.5 py-1.5 bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 text-neutral-800 dark:text-neutral-200 rounded transition">
+                                        Reaction ↗
+                                    </a>
+
+                                    <div class="relative group">
+                                        <button class="px-2.5 py-1.5 bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 text-neutral-800 dark:text-neutral-200 rounded transition flex items-center gap-1">
+                                            Listen ▾
+                                        </button>
+                                        <div class="absolute right-0 pt-1.5 w-36 hidden group-hover:block z-30">
+                                            <div class="bg-white dark:bg-[#222222] border border-neutral-300 dark:border-neutral-700 rounded shadow-lg py-1 text-xs">
+                                                ${album.media_links["Spotify"] ? `<a href="${album.media_links["Spotify"]}" target="_blank" class="block px-3 py-1.5 hover:bg-neutral-100 dark:hover:bg-neutral-700 text-neutral-800 dark:text-neutral-200">Spotify</a>` : ''}
+                                                ${album.media_links["Apple Music"] ? `<a href="${album.media_links["Apple Music"]}" target="_blank" class="block px-3 py-1.5 hover:bg-neutral-100 dark:hover:bg-neutral-700 text-neutral-800 dark:text-neutral-200">Apple Music</a>` : ''}
+                                                ${album.media_links["Soundcloud"] ? `<a href="${album.media_links["Soundcloud"]}" target="_blank" class="block px-3 py-1.5 hover:bg-neutral-100 dark:hover:bg-neutral-700 text-neutral-800 dark:text-neutral-200">SoundCloud</a>` : ''}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button onclick="toggleDropdown('${album._uid}')" class="px-3 py-1.5 rounded font-medium transition ${isOpen ? 'bg-neutral-900 text-white dark:bg-white dark:text-black' : 'bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 text-neutral-800 dark:text-neutral-200'}">
+                                        Tracks (${album.tracks.length})
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        ${isOpen ? `
+                            <div class="border-t border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-[#141414] px-4 py-3">
+                                <div class="flex items-center justify-between mb-2 pb-2 border-b border-neutral-200 dark:border-neutral-800/80 text-xs">
+                                    <span class="text-neutral-500 font-medium">Tracklist</span>
+                                    <div class="flex gap-2">
+                                        <button onclick="setTrackSort('${album._uid}', 'chrono')" class="${tSort === 'chrono' ? 'text-neutral-900 dark:text-white underline font-medium' : 'text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-300'}">Chronological</button>
+                                        <span class="text-neutral-300 dark:text-neutral-700">|</span>
+                                        <button onclick="setTrackSort('${album._uid}', 'rating-desc')" class="${tSort === 'rating-desc' ? 'text-neutral-900 dark:text-white underline font-medium' : 'text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-300'}">Highest Rated</button>
+                                        <span class="text-neutral-300 dark:text-neutral-700">|</span>
+                                        <button onclick="setTrackSort('${album._uid}', 'rating-asc')" class="${tSort === 'rating-asc' ? 'text-neutral-900 dark:text-white underline font-medium' : 'text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-300'}">Lowest Rated</button>
+                                    </div>
+                                </div>
+
+                                <div class="divide-y divide-neutral-200 dark:divide-neutral-800/50 text-sm">
+                                    ${sortedTracks.map(track => `
+                                        <div class="py-1.5 flex items-center justify-between gap-4">
+                                            <div class="flex items-center gap-3 min-w-0">
+                                                <span class="w-5 text-xs text-neutral-400 dark:text-neutral-500 text-right">${track.track_num}.</span>
+                                                <span class="text-neutral-800 dark:text-neutral-200 truncate">${track.title}</span>
+                                            </div>
+                                            <span class="text-xs flex-shrink-0 ${getScoreColor(track.score)}">
+                                                ${formatScoreDisplay(track.score)}
+                                            </span>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function escapeCSV(val) {
+            const str = String(val ?? "");
+            if (str.includes(",") || str.includes('"') || str.includes("\n")) {
+                return `"${str.replace(/"/g, '""')}"`;
+            }
+            return str;
+        }
+
+        function exportCSV() {
+            const rows = [];
+            rows.push(["WHISKEYMUSIKK - OFFICIAL ALBUM & TRACK RANKINGS (Ranked by Bennett)"]);
+            rows.push([]);
+
+            rawData.albums.forEach(a => {
+                const avg = a.avg_song_score ? `${a.avg_song_score}/10` : "Qualitative";
+                rows.push(["ALBUM", "ARTIST", "RELEASE YEAR", "ALBUM SCORE", "TRACK AVG", "REACTION DATE", "YOUTUBE LINK"]);
+                rows.push([
+                    a.album_clean,
+                    a.artist_clean,
+                    a.year,
+                    `${a.album_score}/10`,
+                    avg,
+                    a.video_date,
+                    a.youtube_url
+                ]);
+                rows.push(["Track #", "Song Title", "Rating"]);
+                a.tracks.forEach(t => {
+                    rows.push([
+                        t.track_num,
+                        t.title,
+                        formatScoreDisplay(t.score)
+                    ]);
+                });
+                rows.push([]);
+                rows.push([]);
+            });
+
+            const csvContent = "\uFEFF" + rows.map(r => r.map(escapeCSV).join(",")).join("\r\n");
+            const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement("a");
+            link.href = url;
+            link.download = "WhiskeyMusikk_Rankings.csv";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function exportJSON() {
+            const cleanData = {
+                albums: rawData.albums.map(({ _uid, ...rest }) => rest)
+            };
+            const jsonString = JSON.stringify(cleanData, null, 2);
+            const blob = new Blob([jsonString], { type: "application/json" });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement("a");
+            link.href = url;
+            link.download = "WhiskeyMusikk_Rankings.json";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        window.addEventListener("DOMContentLoaded", () => {
+            prepareData();
+            populateGenres();
+            renderAlbums();
+            document.getElementById("searchInput").addEventListener("input", renderAlbums);
+            document.getElementById("genreFilter").addEventListener("change", renderAlbums);
+            document.getElementById("albumSort").addEventListener("change", renderAlbums);
+        });
+    </script>
+</body>
+</html>
