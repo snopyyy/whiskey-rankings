@@ -16,6 +16,9 @@
         body {
             font-family: 'Inter', sans-serif;
         }
+        .patreon-glow:hover {
+            box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.7);
+        }
     </style>
 </head>
 <body class="min-h-screen antialiased bg-neutral-100 text-neutral-900 dark:bg-[#111111] dark:text-[#eaeaea] transition-colors duration-200">
@@ -47,7 +50,8 @@
                     </div>
                 </div>
 
-                <a href="https://www.youtube.com/@WhiskeyMusikk" target="_blank" class="px-3 py-1.5 bg-neutral-900 hover:bg-neutral-700 text-white dark:bg-white dark:hover:bg-neutral-200 dark:text-black font-semibold rounded transition">
+                <a href="https://www.youtube.com/@WhiskeyMusikk" target="_blank" class="px-3 py-1.5 bg-neutral-900 hover:bg-neutral-700 text-white dark:bg-white dark:hover:bg-neutral-200 dark:text-black font-semibold rounded transition flex items-center gap-1.5">
+                    <img src="src/img/youtube.png" alt="YouTube" class="w-4 h-4 object-contain">
                     YouTube Channel
                 </a>
             </div>
@@ -74,10 +78,26 @@
 
     </div>
 
-    <button onclick="toggleTheme()" id="themeToggleBtn" class="fixed bottom-5 left-5 z-50 px-3.5 py-2 rounded-full bg-white dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 border border-neutral-300 dark:border-neutral-700 shadow-md text-xs font-medium hover:bg-neutral-100 dark:hover:bg-neutral-700 transition flex items-center gap-2">
-        <span id="themeIcon">☀️</span>
-        <span id="themeText">Light Mode</span>
-    </button>
+    <!-- Floating Bottom-Left Controls -->
+    <div class="fixed bottom-5 left-5 z-50 flex items-center gap-2">
+        <button onclick="toggleTheme()" id="themeToggleBtn" class="px-3.5 py-2 rounded-full bg-white dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 border border-neutral-300 dark:border-neutral-700 shadow-md text-xs font-medium hover:bg-neutral-100 dark:hover:bg-neutral-700 transition flex items-center gap-2">
+            <span id="themeIcon">☀️</span>
+            <span id="themeText">Light Mode</span>
+        </button>
+
+        <a href="https://www.patreon.com/cw/WhiskeyMusikk" target="_blank" class="patreon-glow px-3.5 py-2 rounded-full bg-white dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 border border-neutral-300 dark:border-neutral-700 shadow-md text-xs font-medium hover:bg-neutral-100 dark:hover:bg-neutral-700 transition flex items-center gap-2">
+            <img src="src/img/patreon.png" alt="Patreon" class="w-4 h-4 object-contain">
+            <span>Patreon</span>
+        </a>
+
+        <!-- Info Tooltip -->
+        <div class="relative group flex items-center">
+            <span class="w-5 h-5 rounded-full bg-white dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 border border-neutral-300 dark:border-neutral-700 shadow-md text-[11px] font-bold flex items-center justify-center cursor-help">i</span>
+            <div class="absolute bottom-full left-0 mb-2 w-56 p-2 bg-white dark:bg-[#222222] border border-neutral-300 dark:border-neutral-700 rounded shadow-lg text-[11px] text-neutral-700 dark:text-neutral-300 hidden group-hover:block z-50 pointer-events-none">
+                Patreon tier rankings & exclusive community votes are not included in this public archive.
+            </div>
+        </div>
+    </div>
 
     <script>
         const rawData = {
@@ -436,13 +456,15 @@
             if (!scoreStr || scoreStr.trim() === "") return "text-neutral-500";
             const num = parseFloat(scoreStr);
             if (!isNaN(num)) {
+                if (num === 10) return "text-purple-600 dark:text-purple-400 font-bold";
                 if (num >= 9.0) return "text-emerald-600 dark:text-emerald-400 font-semibold";
                 if (num >= 7.5) return "text-green-600 dark:text-green-400";
                 if (num >= 6.0) return "text-amber-600 dark:text-yellow-400";
                 return "text-red-600 dark:text-red-400";
             }
             const lower = scoreStr.toLowerCase().trim();
-            if (lower === "favorite" || lower === "hard") return "text-emerald-600 dark:text-emerald-400 font-semibold";
+            if (lower === "favorite") return "text-purple-600 dark:text-purple-400 font-bold";
+            if (lower === "hard") return "text-emerald-600 dark:text-emerald-400 font-semibold";
             if (lower === "really good" || lower === "good") return "text-green-600 dark:text-green-400";
             if (lower === "mid") return "text-amber-600 dark:text-yellow-400";
             if (lower === "skip") return "text-red-600 dark:text-red-400";
@@ -569,7 +591,8 @@
                                 </div>
 
                                 <div class="flex items-center gap-2 text-xs">
-                                    <a href="${album.youtube_url}" target="_blank" class="px-2.5 py-1.5 bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 text-neutral-800 dark:text-neutral-200 rounded transition">
+                                    <a href="${album.youtube_url}" target="_blank" class="px-2.5 py-1.5 bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 text-neutral-800 dark:text-neutral-200 rounded transition flex items-center gap-1.5">
+                                        <img src="src/img/youtube.png" alt="YouTube" class="w-3.5 h-3.5 object-contain">
                                         Reaction ↗
                                     </a>
 
@@ -579,9 +602,9 @@
                                         </button>
                                         <div class="absolute right-0 pt-1.5 w-36 hidden group-hover:block z-30">
                                             <div class="bg-white dark:bg-[#222222] border border-neutral-300 dark:border-neutral-700 rounded shadow-lg py-1 text-xs">
-                                                ${album.media_links["Spotify"] ? `<a href="${album.media_links["Spotify"]}" target="_blank" class="block px-3 py-1.5 hover:bg-neutral-100 dark:hover:bg-neutral-700 text-neutral-800 dark:text-neutral-200">Spotify</a>` : ''}
-                                                ${album.media_links["Apple Music"] ? `<a href="${album.media_links["Apple Music"]}" target="_blank" class="block px-3 py-1.5 hover:bg-neutral-100 dark:hover:bg-neutral-700 text-neutral-800 dark:text-neutral-200">Apple Music</a>` : ''}
-                                                ${album.media_links["Soundcloud"] ? `<a href="${album.media_links["Soundcloud"]}" target="_blank" class="block px-3 py-1.5 hover:bg-neutral-100 dark:hover:bg-neutral-700 text-neutral-800 dark:text-neutral-200">SoundCloud</a>` : ''}
+                                                ${album.media_links["Spotify"] ? `<a href="${album.media_links["Spotify"]}" target="_blank" class="px-3 py-1.5 hover:bg-neutral-100 dark:hover:bg-neutral-700 text-neutral-800 dark:text-neutral-200 flex items-center gap-2"><img src="src/img/spotify.png" class="w-3.5 h-3.5 object-contain"> Spotify</a>` : ''}
+                                                ${album.media_links["Apple Music"] ? `<a href="${album.media_links["Apple Music"]}" target="_blank" class="px-3 py-1.5 hover:bg-neutral-100 dark:hover:bg-neutral-700 text-neutral-800 dark:text-neutral-200 flex items-center gap-2"><img src="src/img/apple.png" class="w-3.5 h-3.5 object-contain"> Apple Music</a>` : ''}
+                                                ${album.media_links["Soundcloud"] ? `<a href="${album.media_links["Soundcloud"]}" target="_blank" class="px-3 py-1.5 hover:bg-neutral-100 dark:hover:bg-neutral-700 text-neutral-800 dark:text-neutral-200 flex items-center gap-2"><img src="src/img/soundcloud.png" class="w-3.5 h-3.5 object-contain"> SoundCloud</a>` : ''}
                                             </div>
                                         </div>
                                     </div>
