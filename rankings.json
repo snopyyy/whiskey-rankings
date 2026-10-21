@@ -1,6 +1,7 @@
 {
   "albums": [
     {
+      "reviewer": "bennett",
       "album_clean": "Eternal Atake",
       "artist_clean": "Lil Uzi Vert",
       "album_score": "9",
@@ -19,99 +20,28 @@
       "video_date": "2026-09-18",
       "cover_url": "https://d1j3ls2jacen4o.cloudfront.net/thumbnails/685fb326b90bc0b3b6a9f45e.jpg",
       "tracks": [
-        {
-          "track_num": 1,
-          "title": "Baby Pluto",
-          "score": "Really Good"
-        },
-        {
-          "track_num": 2,
-          "title": "Lo Mein",
-          "score": "Good"
-        },
-        {
-          "track_num": 3,
-          "title": "Silly Watch",
-          "score": "Hard"
-        },
-        {
-          "track_num": 4,
-          "title": "POP",
-          "score": "Skip"
-        },
-        {
-          "track_num": 5,
-          "title": "You Better Move",
-          "score": "N/A"
-        },
-        {
-          "track_num": 6,
-          "title": "Homecoming",
-          "score": "Hard"
-        },
-        {
-          "track_num": 7,
-          "title": "I'm Sorry",
-          "score": "Mid"
-        },
-        {
-          "track_num": 8,
-          "title": "Celebration Station",
-          "score": "Favorite"
-        },
-        {
-          "track_num": 9,
-          "title": "Bigger Than Life",
-          "score": "Really Good"
-        },
-        {
-          "track_num": 10,
-          "title": "Chrome Heart Tags",
-          "score": "Good"
-        },
-        {
-          "track_num": 11,
-          "title": "Bust Me",
-          "score": "Skip"
-        },
-        {
-          "track_num": 12,
-          "title": "Prices",
-          "score": "Good"
-        },
-        {
-          "track_num": 13,
-          "title": "Urgency",
-          "score": "Mid"
-        },
-        {
-          "track_num": 14,
-          "title": "Venetia",
-          "score": "N/A"
-        },
-        {
-          "track_num": 15,
-          "title": "Secure The Bag",
-          "score": "N/A"
-        },
-        {
-          "track_num": 16,
-          "title": "P2",
-          "score": "Good"
-        },
-        {
-          "track_num": 17,
-          "title": "Futsal Shuffle 2020 - Bonus Track",
-          "score": "N/A"
-        },
-        {
-          "track_num": 18,
-          "title": "That Way - Bonus Track",
-          "score": "N/A"
-        }
+        { "track_num": 1, "title": "Baby Pluto", "score": "Really Good" },
+        { "track_num": 2, "title": "Lo Mein", "score": "Good" },
+        { "track_num": 3, "title": "Silly Watch", "score": "Hard" },
+        { "track_num": 4, "title": "POP", "score": "Skip" },
+        { "track_num": 5, "title": "You Better Move", "score": "N/A" },
+        { "track_num": 6, "title": "Homecoming", "score": "Hard" },
+        { "track_num": 7, "title": "I'm Sorry", "score": "Mid" },
+        { "track_num": 8, "title": "Celebration Station", "score": "Favorite" },
+        { "track_num": 9, "title": "Bigger Than Life", "score": "Really Good" },
+        { "track_num": 10, "title": "Chrome Heart Tags", "score": "Good" },
+        { "track_num": 11, "title": "Bust Me", "score": "Skip" },
+        { "track_num": 12, "title": "Prices", "score": "Good" },
+        { "track_num": 13, "title": "Urgency", "score": "Mid" },
+        { "track_num": 14, "title": "Venetia", "score": "N/A" },
+        { "track_num": 15, "title": "Secure The Bag", "score": "N/A" },
+        { "track_num": 16, "title": "P2", "score": "Good" },
+        { "track_num": 17, "title": "Futsal Shuffle 2020 - Bonus Track", "score": "N/A" },
+        { "track_num": 18, "title": "That Way - Bonus Track", "score": "N/A" }
       ]
     },
     {
+      "reviewer": "bennett",
       "album_clean": "ASTROWORLD",
       "artist_clean": "Travis Scott",
       "album_score": "9",
@@ -130,94 +60,27 @@
       "video_date": "2026-09-25",
       "cover_url": "https://d1j3ls2jacen4o.cloudfront.net/thumbnails/685fb326b90bc0b3b6a9ef86.jpg",
       "tracks": [
-        {
-          "track_num": 1,
-          "title": "STARGAZING",
-          "score": "7"
-        },
-        {
-          "track_num": 2,
-          "title": "CAROUSEL",
-          "score": "6"
-        },
-        {
-          "track_num": 3,
-          "title": "SICKO MODE",
-          "score": "9"
-        },
-        {
-          "track_num": 4,
-          "title": "R.I.P. SCREW",
-          "score": "8"
-        },
-        {
-          "track_num": 5,
-          "title": "STOP TRYING TO BE GOD",
-          "score": "9"
-        },
-        {
-          "track_num": 6,
-          "title": "NO BYSTANDERS",
-          "score": "10"
-        },
-        {
-          "track_num": 7,
-          "title": "SKELETONS",
-          "score": "6"
-        },
-        {
-          "track_num": 8,
-          "title": "WAKE UP",
-          "score": "7"
-        },
-        {
-          "track_num": 9,
-          "title": "5% TINT",
-          "score": "5"
-        },
-        {
-          "track_num": 10,
-          "title": "NC-17",
-          "score": "6"
-        },
-        {
-          "track_num": 11,
-          "title": "ASTROTHUNDER",
-          "score": "7"
-        },
-        {
-          "track_num": 12,
-          "title": "YOSEMITE",
-          "score": "10"
-        },
-        {
-          "track_num": 13,
-          "title": "CAN'T SAY",
-          "score": "4"
-        },
-        {
-          "track_num": 14,
-          "title": "WHO? WHAT!",
-          "score": "8"
-        },
-        {
-          "track_num": 15,
-          "title": "BUTTERFLY EFFECT",
-          "score": "9"
-        },
-        {
-          "track_num": 16,
-          "title": "HOUSTONFORNICATION",
-          "score": "8"
-        },
-        {
-          "track_num": 17,
-          "title": "COFFEE BEAN",
-          "score": "6"
-        }
+        { "track_num": 1, "title": "STARGAZING", "score": "7" },
+        { "track_num": 2, "title": "CAROUSEL", "score": "6" },
+        { "track_num": 3, "title": "SICKO MODE", "score": "9" },
+        { "track_num": 4, "title": "R.I.P. SCREW", "score": "8" },
+        { "track_num": 5, "title": "STOP TRYING TO BE GOD", "score": "9" },
+        { "track_num": 6, "title": "NO BYSTANDERS", "score": "10" },
+        { "track_num": 7, "title": "SKELETONS", "score": "6" },
+        { "track_num": 8, "title": "WAKE UP", "score": "7" },
+        { "track_num": 9, "title": "5% TINT", "score": "5" },
+        { "track_num": 10, "title": "NC-17", "score": "6" },
+        { "track_num": 11, "title": "ASTROTHUNDER", "score": "7" },
+        { "track_num": 12, "title": "YOSEMITE", "score": "10" },
+        { "track_num": 13, "title": "CAN'T SAY", "score": "4" },
+        { "track_num": 14, "title": "WHO? WHAT!", "score": "8" },
+        { "track_num": 15, "title": "BUTTERFLY EFFECT", "score": "9" },
+        { "track_num": 16, "title": "HOUSTONFORNICATION", "score": "8" },
+        { "track_num": 17, "title": "COFFEE BEAN", "score": "6" }
       ]
     },
     {
+      "reviewer": "bennett",
       "album_clean": "Graduation",
       "artist_clean": "Kanye West",
       "album_score": "7",
@@ -235,79 +98,24 @@
       "video_date": "2026-09-25",
       "cover_url": "https://cdn.sonemic.net/i/600/w/26c23a7843ad12cc5dab5e28e26aa4aa/14510684/kanye-west-graduation-Cover-Art.jpg",
       "tracks": [
-        {
-          "track_num": 1,
-          "title": "Good Morning",
-          "score": "4"
-        },
-        {
-          "track_num": 2,
-          "title": "Champion",
-          "score": "Good"
-        },
-        {
-          "track_num": 3,
-          "title": "Stronger",
-          "score": "10"
-        },
-        {
-          "track_num": 4,
-          "title": "I Wonder",
-          "score": "Good"
-        },
-        {
-          "track_num": 5,
-          "title": "Good Life",
-          "score": "Good"
-        },
-        {
-          "track_num": 6,
-          "title": "Can't Tell Me Nothing",
-          "score": "Good"
-        },
-        {
-          "track_num": 7,
-          "title": "Barry Bonds",
-          "score": "N/A"
-        },
-        {
-          "track_num": 8,
-          "title": "Drunk and Hot Girls",
-          "score": "N/A"
-        },
-        {
-          "track_num": 9,
-          "title": "Flashing Lights",
-          "score": "8.5"
-        },
-        {
-          "track_num": 10,
-          "title": "Everything I Am",
-          "score": "6.5"
-        },
-        {
-          "track_num": 11,
-          "title": "The Glory",
-          "score": "4.5"
-        },
-        {
-          "track_num": 12,
-          "title": "Homecoming",
-          "score": "9"
-        },
-        {
-          "track_num": 13,
-          "title": "Big Brother",
-          "score": "N/A"
-        },
-        {
-          "track_num": 14,
-          "title": "Good Night",
-          "score": "N/A"
-        }
+        { "track_num": 1, "title": "Good Morning", "score": "4" },
+        { "track_num": 2, "title": "Champion", "score": "Good" },
+        { "track_num": 3, "title": "Stronger", "score": "10" },
+        { "track_num": 4, "title": "I Wonder", "score": "Good" },
+        { "track_num": 5, "title": "Good Life", "score": "Good" },
+        { "track_num": 6, "title": "Can't Tell Me Nothing", "score": "Good" },
+        { "track_num": 7, "title": "Barry Bonds", "score": "N/A" },
+        { "track_num": 8, "title": "Drunk and Hot Girls", "score": "N/A" },
+        { "track_num": 9, "title": "Flashing Lights", "score": "8.5" },
+        { "track_num": 10, "title": "Everything I Am", "score": "6.5" },
+        { "track_num": 11, "title": "The Glory", "score": "4.5" },
+        { "track_num": 12, "title": "Homecoming", "score": "9" },
+        { "track_num": 13, "title": "Big Brother", "score": "N/A" },
+        { "track_num": 14, "title": "Good Night", "score": "N/A" }
       ]
     },
     {
+      "reviewer": "bennett",
       "album_clean": "Playboi Carti",
       "artist_clean": "Playboi Carti",
       "album_score": "7.5",
@@ -326,84 +134,25 @@
       "video_date": "2026-09-29",
       "cover_url": "https://cdn.sonemic.net/i/600/w/e7b7d78ed280fe4eaa31d857e742f966/8417412/playboi-carti-playboi-carti-Cover-Art.jpg",
       "tracks": [
-        {
-          "track_num": 1,
-          "title": "Location",
-          "score": "Good"
-        },
-        {
-          "track_num": 2,
-          "title": "Magnolia",
-          "score": "Good"
-        },
-        {
-          "track_num": 3,
-          "title": "Lookin",
-          "score": "Good"
-        },
-        {
-          "track_num": 4,
-          "title": "wokeuplikethis*",
-          "score": "Good"
-        },
-        {
-          "track_num": 5,
-          "title": "Let It Go",
-          "score": "5"
-        },
-        {
-          "track_num": 6,
-          "title": "Half & Half",
-          "score": "Good"
-        },
-        {
-          "track_num": 7,
-          "title": "New Choppa",
-          "score": "Good"
-        },
-        {
-          "track_num": 8,
-          "title": "Other Shit",
-          "score": "N/A"
-        },
-        {
-          "track_num": 9,
-          "title": "NO. 9",
-          "score": "6"
-        },
-        {
-          "track_num": 10,
-          "title": "dothatshit!",
-          "score": "8"
-        },
-        {
-          "track_num": 11,
-          "title": "Lame Ni**az",
-          "score": "4.5"
-        },
-        {
-          "track_num": 12,
-          "title": "Yah Mean",
-          "score": "5.5"
-        },
-        {
-          "track_num": 13,
-          "title": "Flex",
-          "score": "10"
-        },
-        {
-          "track_num": 14,
-          "title": "Kelly K",
-          "score": "Good"
-        },
-        {
-          "track_num": 15,
-          "title": "Had 2",
-          "score": "N/A"
-        }
+        { "track_num": 1, "title": "Location", "score": "Good" },
+        { "track_num": 2, "title": "Magnolia", "score": "Good" },
+        { "track_num": 3, "title": "Lookin", "score": "Good" },
+        { "track_num": 4, "title": "wokeuplikethis*", "score": "Good" },
+        { "track_num": 5, "title": "Let It Go", "score": "5" },
+        { "track_num": 6, "title": "Half & Half", "score": "Good" },
+        { "track_num": 7, "title": "New Choppa", "score": "Good" },
+        { "track_num": 8, "title": "Other Shit", "score": "N/A" },
+        { "track_num": 9, "title": "NO. 9", "score": "6" },
+        { "track_num": 10, "title": "dothatshit!", "score": "8" },
+        { "track_num": 11, "title": "Lame Ni**az", "score": "4.5" },
+        { "track_num": 12, "title": "Yah Mean", "score": "5.5" },
+        { "track_num": 13, "title": "Flex", "score": "10" },
+        { "track_num": 14, "title": "Kelly K", "score": "Good" },
+        { "track_num": 15, "title": "Had 2", "score": "N/A" }
       ]
     },
     {
+      "reviewer": "bennett",
       "album_clean": "Goodbye & Good Riddance",
       "artist_clean": "Juice WRLD",
       "album_score": "9.5",
@@ -423,103 +172,32 @@
       "video_date": "2026-10-02",
       "cover_url": "https://d1j3ls2jacen4o.cloudfront.net/thumbnails/685fb326b90bc0b3b6a9f2fe.jpg",
       "tracks": [
-        {
-          "track_num": 1,
-          "title": "Intro",
-          "score": "N/A"
-        },
-        {
-          "track_num": 2,
-          "title": "All Girls Are The Same",
-          "score": "9"
-        },
-        {
-          "track_num": 3,
-          "title": "Lucid Dreams",
-          "score": "9.5"
-        },
-        {
-          "track_num": 4,
-          "title": "Wasted",
-          "score": "10"
-        },
-        {
-          "track_num": 5,
-          "title": "Armed And Dangerous",
-          "score": "9"
-        },
-        {
-          "track_num": 6,
-          "title": "Black & White",
-          "score": "10"
-        },
-        {
-          "track_num": 7,
-          "title": "Lean Wit Me",
-          "score": "9.5"
-        },
-        {
-          "track_num": 8,
-          "title": "I'll Be Fine",
-          "score": "8"
-        },
-        {
-          "track_num": 9,
-          "title": "Used To",
-          "score": "9.5"
-        },
-        {
-          "track_num": 10,
-          "title": "Candles",
-          "score": "8.5"
-        },
-        {
-          "track_num": 11,
-          "title": "Scared Of Love",
-          "score": "8.5"
-        },
-        {
-          "track_num": 12,
-          "title": "Hurt Me",
-          "score": "8"
-        },
-        {
-          "track_num": 13,
-          "title": "I'm Still",
-          "score": "9"
-        },
-        {
-          "track_num": 14,
-          "title": "End Of The Road",
-          "score": "9.75"
-        },
-        {
-          "track_num": 15,
-          "title": "Long Gone",
-          "score": "8"
-        },
-        {
-          "track_num": 16,
-          "title": "Betrayal - Skit",
-          "score": "N/A"
-        },
-        {
-          "track_num": 17,
-          "title": "Karma - Skit",
-          "score": "N/A"
-        },
-        {
-          "track_num": 18,
-          "title": "Lucid Dreams - Remix",
-          "score": "10"
-        }
+        { "track_num": 1, "title": "Intro", "score": "N/A" },
+        { "track_num": 2, "title": "All Girls Are The Same", "score": "9" },
+        { "track_num": 3, "title": "Lucid Dreams", "score": "9.5" },
+        { "track_num": 4, "title": "Wasted", "score": "10" },
+        { "track_num": 5, "title": "Armed And Dangerous", "score": "9" },
+        { "track_num": 6, "title": "Black & White", "score": "10" },
+        { "track_num": 7, "title": "Lean Wit Me", "score": "9.5" },
+        { "track_num": 8, "title": "I'll Be Fine", "score": "8" },
+        { "track_num": 9, "title": "Used To", "score": "9.5" },
+        { "track_num": 10, "title": "Candles", "score": "8.5" },
+        { "track_num": 11, "title": "Scared Of Love", "score": "8.5" },
+        { "track_num": 12, "title": "Hurt Me", "score": "8" },
+        { "track_num": 13, "title": "I'm Still", "score": "9" },
+        { "track_num": 14, "title": "End Of The Road", "score": "9.75" },
+        { "track_num": 15, "title": "Long Gone", "score": "8" },
+        { "track_num": 16, "title": "Betrayal - Skit", "score": "N/A" },
+        { "track_num": 17, "title": "Karma - Skit", "score": "N/A" },
+        { "track_num": 18, "title": "Lucid Dreams - Remix", "score": "10" }
       ]
     },
     {
+      "reviewer": "bennett",
       "album_clean": "Discovery",
       "artist_clean": "Daft Punk",
       "album_score": "9",
-      "avg_song_score": "8.4",
+      "avg_song_score": "8.5",
       "genres": [
         "french house"
       ],
@@ -533,83 +211,28 @@
       "video_date": "2026-10-08",
       "cover_url": "https://d1j3ls2jacen4o.cloudfront.net/thumbnails/685fb326b90bc0b3b6a9e97c.png",
       "tracks": [
-        {
-          "track_num": 1,
-          "title": "One More Time",
-          "score": "9"
-        },
-        {
-          "track_num": 2,
-          "title": "Aerodynamic",
-          "score": "Good"
-        },
-        {
-          "track_num": 3,
-          "title": "Digital Love",
-          "score": "9"
-        },
-        {
-          "track_num": 4,
-          "title": "Harder, Better, Faster, Stronger",
-          "score": "8.5"
-        },
-        {
-          "track_num": 5,
-          "title": "Crescendolls",
-          "score": "6.5"
-        },
-        {
-          "track_num": 6,
-          "title": "Nightvision",
-          "score": "7"
-        },
-        {
-          "track_num": 7,
-          "title": "Superheroes",
-          "score": "7.75"
-        },
-        {
-          "track_num": 8,
-          "title": "High Life",
-          "score": "6.5"
-        },
-        {
-          "track_num": 9,
-          "title": "Something About Us",
-          "score": "10"
-        },
-        {
-          "track_num": 10,
-          "title": "Voyager",
-          "score": "8.5"
-        },
-        {
-          "track_num": 11,
-          "title": "Veridis Quo",
-          "score": "9"
-        },
-        {
-          "track_num": 12,
-          "title": "Short Circuit",
-          "score": "9.5"
-        },
-        {
-          "track_num": 13,
-          "title": "Face to Face",
-          "score": "9.5"
-        },
-        {
-          "track_num": 14,
-          "title": "Too Long",
-          "score": "Good"
-        }
+        { "track_num": 1, "title": "One More Time", "score": "9" },
+        { "track_num": 2, "title": "Aerodynamic", "score": "Good" },
+        { "track_num": 3, "title": "Digital Love", "score": "9" },
+        { "track_num": 4, "title": "Harder, Better, Faster, Stronger", "score": "8.5" },
+        { "track_num": 5, "title": "Crescendolls", "score": "6.5" },
+        { "track_num": 6, "title": "Nightvision", "score": "7" },
+        { "track_num": 7, "title": "Superheroes", "score": "7.75" },
+        { "track_num": 8, "title": "High Life", "score": "6.5" },
+        { "track_num": 9, "title": "Something About Us", "score": "10" },
+        { "track_num": 10, "title": "Voyager", "score": "8.5" },
+        { "track_num": 11, "title": "Veridis Quo", "score": "9" },
+        { "track_num": 12, "title": "Short Circuit", "score": "9.5" },
+        { "track_num": 13, "title": "Face to Face", "score": "9.5" },
+        { "track_num": 14, "title": "Too Long", "score": "Good" }
       ]
     },
     {
+      "reviewer": "bennett",
       "album_clean": "HEROES & VILLAINS",
       "artist_clean": "Metro Boomin",
       "album_score": "9.5",
-      "avg_song_score": "8.4",
+      "avg_song_score": "8.5",
       "genres": [
         "trap"
       ],
@@ -623,84 +246,25 @@
       "video_date": "2026-10-09",
       "cover_url": "https://d1j3ls2jacen4o.cloudfront.net/thumbnails/685fb326b90bc0b3b6a9ee88.jpg",
       "tracks": [
-        {
-          "track_num": 1,
-          "title": "On Time",
-          "score": "6.5"
-        },
-        {
-          "track_num": 2,
-          "title": "Superhero (Heroes & Villains)",
-          "score": "8.5"
-        },
-        {
-          "track_num": 3,
-          "title": "Too Many Nights",
-          "score": "9.5"
-        },
-        {
-          "track_num": 4,
-          "title": "Raindrops (Insane)",
-          "score": "10"
-        },
-        {
-          "track_num": 5,
-          "title": "Umbrella",
-          "score": "N/A"
-        },
-        {
-          "track_num": 6,
-          "title": "Trance",
-          "score": "8.5"
-        },
-        {
-          "track_num": 7,
-          "title": "Around Me",
-          "score": "7.5"
-        },
-        {
-          "track_num": 8,
-          "title": "Metro Spider",
-          "score": "10"
-        },
-        {
-          "track_num": 9,
-          "title": "I Can't Save You (Interlude)",
-          "score": "N/A"
-        },
-        {
-          "track_num": 10,
-          "title": "Creepin'",
-          "score": "7.5"
-        },
-        {
-          "track_num": 11,
-          "title": "Niagara Falls (Foot or 2)",
-          "score": "9"
-        },
-        {
-          "track_num": 12,
-          "title": "Walk Em Down (Don't Kill Civilians)",
-          "score": "Skip"
-        },
-        {
-          "track_num": 13,
-          "title": "Lock On Me",
-          "score": "N/A"
-        },
-        {
-          "track_num": 14,
-          "title": "Feel The Fiyaaaah",
-          "score": "7"
-        },
-        {
-          "track_num": 15,
-          "title": "All The Money (Bonus)",
-          "score": "Good"
-        }
+        { "track_num": 1, "title": "On Time", "score": "6.5" },
+        { "track_num": 2, "title": "Superhero (Heroes & Villains)", "score": "8.5" },
+        { "track_num": 3, "title": "Too Many Nights", "score": "9.5" },
+        { "track_num": 4, "title": "Raindrops (Insane)", "score": "10" },
+        { "track_num": 5, "title": "Umbrella", "score": "N/A" },
+        { "track_num": 6, "title": "Trance", "score": "8.5" },
+        { "track_num": 7, "title": "Around Me", "score": "7.5" },
+        { "track_num": 8, "title": "Metro Spider", "score": "10" },
+        { "track_num": 9, "title": "I Can't Save You (Interlude)", "score": "N/A" },
+        { "track_num": 10, "title": "Creepin'", "score": "7.5" },
+        { "track_num": 11, "title": "Niagara Falls (Foot or 2)", "score": "9" },
+        { "track_num": 12, "title": "Walk Em Down (Don't Kill Civilians)", "score": "Skip" },
+        { "track_num": 13, "title": "Lock On Me", "score": "N/A" },
+        { "track_num": 14, "title": "Feel The Fiyaaaah", "score": "7" },
+        { "track_num": 15, "title": "All The Money (Bonus)", "score": "Good" }
       ]
     },
     {
+      "reviewer": "bennett",
       "album_clean": "UTOPIA",
       "artist_clean": "Travis Scott",
       "album_score": "8.5",
@@ -719,104 +283,29 @@
       "video_date": "2026-10-14",
       "cover_url": "https://cdn.sonemic.net/i/600/w/8d76157623fe120930c2438ae7ef038d/11177958/travis-scott-utopia-Cover-Art.png",
       "tracks": [
-        {
-          "track_num": 1,
-          "title": "HYAENA",
-          "score": "7.5"
-        },
-        {
-          "track_num": 2,
-          "title": "THANK GOD",
-          "score": "6.5"
-        },
-        {
-          "track_num": 3,
-          "title": "MODERN JAM",
-          "score": "6"
-        },
-        {
-          "track_num": 4,
-          "title": "MY EYES",
-          "score": "10"
-        },
-        {
-          "track_num": 5,
-          "title": "GOD'S COUNTRY",
-          "score": "N/A"
-        },
-        {
-          "track_num": 6,
-          "title": "SIRENS",
-          "score": "9"
-        },
-        {
-          "track_num": 7,
-          "title": "MELTDOWN",
-          "score": "9.5"
-        },
-        {
-          "track_num": 8,
-          "title": "FE!N",
-          "score": "7"
-        },
-        {
-          "track_num": 9,
-          "title": "DELRESTO (ECHOES)",
-          "score": "5"
-        },
-        {
-          "track_num": 10,
-          "title": "I KNOW ?",
-          "score": "9.5"
-        },
-        {
-          "track_num": 11,
-          "title": "TOPIA TWINS",
-          "score": "10"
-        },
-        {
-          "track_num": 12,
-          "title": "CIRCUS MAXIMUS",
-          "score": "8"
-        },
-        {
-          "track_num": 13,
-          "title": "PARASAIL",
-          "score": "4"
-        },
-        {
-          "track_num": 14,
-          "title": "SKITZO",
-          "score": "9.5"
-        },
-        {
-          "track_num": 15,
-          "title": "LOST FOREVER",
-          "score": "Mid"
-        },
-        {
-          "track_num": 16,
-          "title": "LOOOVE",
-          "score": "6"
-        },
-        {
-          "track_num": 17,
-          "title": "K-POP",
-          "score": "6.5"
-        },
-        {
-          "track_num": 18,
-          "title": "TELEKINESIS",
-          "score": "9"
-        },
-        {
-          "track_num": 19,
-          "title": "TIL FURTHER NOTICE",
-          "score": "10"
-        }
+        { "track_num": 1, "title": "HYAENA", "score": "7.5" },
+        { "track_num": 2, "title": "THANK GOD", "score": "6.5" },
+        { "track_num": 3, "title": "MODERN JAM", "score": "6" },
+        { "track_num": 4, "title": "MY EYES", "score": "10" },
+        { "track_num": 5, "title": "GOD'S COUNTRY", "score": "N/A" },
+        { "track_num": 6, "title": "SIRENS", "score": "9" },
+        { "track_num": 7, "title": "MELTDOWN", "score": "9.5" },
+        { "track_num": 8, "title": "FE!N", "score": "7" },
+        { "track_num": 9, "title": "DELRESTO (ECHOES)", "score": "5" },
+        { "track_num": 10, "title": "I KNOW ?", "score": "9.5" },
+        { "track_num": 11, "title": "TOPIA TWINS", "score": "10" },
+        { "track_num": 12, "title": "CIRCUS MAXIMUS", "score": "8" },
+        { "track_num": 13, "title": "PARASAIL", "score": "4" },
+        { "track_num": 14, "title": "SKITZO", "score": "9.5" },
+        { "track_num": 15, "title": "LOST FOREVER", "score": "Mid" },
+        { "track_num": 16, "title": "LOOOVE", "score": "6" },
+        { "track_num": 17, "title": "K-POP", "score": "6.5" },
+        { "track_num": 18, "title": "TELEKINESIS", "score": "9" },
+        { "track_num": 19, "title": "TIL FURTHER NOTICE", "score": "10" }
       ]
     },
     {
+      "reviewer": "bennett",
       "album_clean": "good kid, m.A.A.d city",
       "artist_clean": "Kendrick Lamar",
       "album_score": "10",
@@ -834,71 +323,101 @@
       "video_date": "2026-10-16",
       "cover_url": "https://cdn.sonemic.net/i/600/w/3342322bda7a56b38f75478c4b43a209/6922692/kendrick-lamar-good-kid-m_a_a_d-city-Cover-Art.jpg",
       "tracks": [
-        {
-          "track_num": 1,
-          "title": "Sherane a.k.a Master Splinter's Daughter",
-          "score": "8"
-        },
-        {
-          "track_num": 2,
-          "title": "Bitch, Don't Kill My Vibe",
-          "score": "10"
-        },
-        {
-          "track_num": 3,
-          "title": "Backseat Freestyle",
-          "score": "9"
-        },
-        {
-          "track_num": 4,
-          "title": "The Art of Peer Pressure",
-          "score": "8"
-        },
-        {
-          "track_num": 5,
-          "title": "Money Trees",
-          "score": "10"
-        },
-        {
-          "track_num": 6,
-          "title": "Poetic Justice",
-          "score": "9.5"
-        },
-        {
-          "track_num": 7,
-          "title": "good kid",
-          "score": "9.5"
-        },
-        {
-          "track_num": 8,
-          "title": "m.A.A.d city",
-          "score": "9"
-        },
-        {
-          "track_num": 9,
-          "title": "Swimming Pools (Drank)",
-          "score": "10"
-        },
-        {
-          "track_num": 10,
-          "title": "Sing About Me, I'm Dying of Thirst",
-          "score": "8"
-        },
-        {
-          "track_num": 11,
-          "title": "Real",
-          "score": "7.5"
-        },
-        {
-          "track_num": 12,
-          "title": "Compton",
-          "score": "7.5"
-        },
-        {
-          "track_num": 13,
-          "title": "Bitch, Don't Kill My Vibe - Remix",
-          "score": "9.5"
-        }
+        { "track_num": 1, "title": "Sherane a.k.a Master Splinter's Daughter", "score": "8" },
+        { "track_num": 2, "title": "Bitch, Don't Kill My Vibe", "score": "10" },
+        { "track_num": 3, "title": "Backseat Freestyle", "score": "9" },
+        { "track_num": 4, "title": "The Art of Peer Pressure", "score": "8" },
+        { "track_num": 5, "title": "Money Trees", "score": "10" },
+        { "track_num": 6, "title": "Poetic Justice", "score": "9.5" },
+        { "track_num": 7, "title": "good kid", "score": "9.5" },
+        { "track_num": 8, "title": "m.A.A.d city", "score": "9" },
+        { "track_num": 9, "title": "Swimming Pools (Drank)", "score": "10" },
+        { "track_num": 10, "title": "Sing About Me, I'm Dying of Thirst", "score": "8" },
+        { "track_num": 11, "title": "Real", "score": "7.5" },
+        { "track_num": 12, "title": "Compton", "score": "7.5" },
+        { "track_num": 13, "title": "Bitch, Don't Kill My Vibe - Remix", "score": "9.5" }
+      ]
+    },
+    {
+      "reviewer": "bennett",
+      "album_clean": "Take Care",
+      "artist_clean": "Drake",
+      "album_score": "9",
+      "avg_song_score": "7.9",
+      "genres": [
+        "pop rap",
+        "contemporary r&b"
+      ],
+      "media_links": {
+        "Apple Music": "https://geo.music.apple.com/us/album/take-care-deluxe-version/1440642493",
+        "Spotify": "https://open.spotify.com/album/0NGwRz0semIXUCSxR0uffa",
+        "Soundcloud": "https://soundcloud.com/octobersveryown/sets/take-care-7"
+      },
+      "year": "2011",
+      "youtube_url": "https://www.youtube.com/@WhiskeyMusikk",
+      "video_date": "2026-10-21",
+      "cover_url": "https://cdn.sonemic.net/i/600/w/7ea6e28aeb2bb860176996adc92e7b2e/4901693/drake-take-care-Cover-Art.jpg",
+      "tracks": [
+        { "track_num": 1, "title": "Over My Dead Body", "score": "7" },
+        { "track_num": 2, "title": "Shot For Me", "score": "N/A" },
+        { "track_num": 3, "title": "Headlines", "score": "10" },
+        { "track_num": 4, "title": "Crew Love", "score": "5.5" },
+        { "track_num": 5, "title": "Take Care", "score": "7.5" },
+        { "track_num": 6, "title": "Marvins Room", "score": "10" },
+        { "track_num": 7, "title": "Buried Alive Interlude", "score": "7" },
+        { "track_num": 8, "title": "Underground Kings", "score": "9.5" },
+        { "track_num": 9, "title": "We'll Be Fine", "score": "8.5" },
+        { "track_num": 10, "title": "Make Me Proud", "score": "9" },
+        { "track_num": 11, "title": "Lord Knows", "score": "9.25" },
+        { "track_num": 12, "title": "Cameras / Good Ones Go Interlude", "score": "6.5" },
+        { "track_num": 13, "title": "Doing It Wrong", "score": "6.25" },
+        { "track_num": 14, "title": "The Real Her", "score": "7" },
+        { "track_num": 15, "title": "Look What You've Done", "score": "7.75" },
+        { "track_num": 16, "title": "HYFR (Hell Ya Fucking Right)", "score": "10" },
+        { "track_num": 17, "title": "Practice", "score": "9" },
+        { "track_num": 18, "title": "The Ride", "score": "5.75" },
+        { "track_num": 19, "title": "The Motto", "score": "7" }
+      ]
+    },
+    {
+      "reviewer": "luke",
+      "album_clean": "Take Care",
+      "artist_clean": "Drake",
+      "album_score": "N/A",
+      "avg_song_score": "8.1",
+      "genres": [
+        "pop rap",
+        "contemporary r&b"
+      ],
+      "media_links": {
+        "Apple Music": "https://geo.music.apple.com/us/album/take-care-deluxe-version/1440642493",
+        "Spotify": "https://open.spotify.com/album/0NGwRz0semIXUCSxR0uffa",
+        "Soundcloud": "https://soundcloud.com/octobersveryown/sets/take-care-7"
+      },
+      "year": "2011",
+      "youtube_url": "https://www.youtube.com/@WhiskeyMusikk",
+      "video_date": "2026-10-21",
+      "cover_url": "https://cdn.sonemic.net/i/600/w/7ea6e28aeb2bb860176996adc92e7b2e/4901693/drake-take-care-Cover-Art.jpg",
+      "tracks": [
+        { "track_num": 1, "title": "Over My Dead Body", "score": "6.5" },
+        { "track_num": 2, "title": "Shot For Me", "score": "7" },
+        { "track_num": 3, "title": "Headlines", "score": "10" },
+        { "track_num": 4, "title": "Crew Love", "score": "7.5" },
+        { "track_num": 5, "title": "Take Care", "score": "N/A" },
+        { "track_num": 6, "title": "Marvins Room", "score": "10" },
+        { "track_num": 7, "title": "Buried Alive Interlude", "score": "7" },
+        { "track_num": 8, "title": "Underground Kings", "score": "9" },
+        { "track_num": 9, "title": "We'll Be Fine", "score": "8" },
+        { "track_num": 10, "title": "Make Me Proud", "score": "9" },
+        { "track_num": 11, "title": "Lord Knows", "score": "9.5" },
+        { "track_num": 12, "title": "Cameras / Good Ones Go Interlude", "score": "6.5" },
+        { "track_num": 13, "title": "Doing It Wrong", "score": "6" },
+        { "track_num": 14, "title": "The Real Her", "score": "8" },
+        { "track_num": 15, "title": "Look What You've Done", "score": "8" },
+        { "track_num": 16, "title": "HYFR (Hell Ya Fucking Right)", "score": "10" },
+        { "track_num": 17, "title": "Practice", "score": "8" },
+        { "track_num": 18, "title": "The Ride", "score": "8" },
+        { "track_num": 19, "title": "The Motto", "score": "7" }
       ]
     }
   ]
