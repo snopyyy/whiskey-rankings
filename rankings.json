@@ -460,45 +460,6 @@
       ]
     },
     {
-      "reviewer": "bennett",
-      "album_clean": "DS2",
-      "artist_clean": "Future",
-      "album_score": "8.75",
-      "avg_song_score": "8.2",
-      "genres": [
-        "trap"
-      ],
-      "media_links": {
-        "Apple Music": "https://geo.music.apple.com/us/album/ds2-deluxe/1017053934",
-        "Spotify": "https://open.spotify.com/album/0fUy6IdLHDpGNwavIlhEsl",
-        "Soundcloud": "https://soundcloud.com/futureisnow/sets/ds2-21"
-      },
-      "year": "2015",
-      "youtube_url": "https://www.youtube.com/watch?v=g2Epnc9XndI",
-      "video_date": "2026-10-27",
-      "cover_url": "https://cdn.sonemic.net/i/600/w/08fd925b76d3212041b265813ba1ab66/10135474/future-ds2-Cover-Art.jpg",
-      "tracks": [
-        { "track_num": 1, "title": "Thought It Was a Drought", "score": "8" },
-        { "track_num": 2, "title": "I Serve the Base", "score": "8.5" },
-        { "track_num": 3, "title": "Where Ya At", "score": "9" },
-        { "track_num": 4, "title": "Groupies", "score": "6.5" },
-        { "track_num": 5, "title": "Lil One", "score": "7" },
-        { "track_num": 6, "title": "Stick Talk", "score": "10" },
-        { "track_num": 7, "title": "Freak Hoe", "score": "7.5" },
-        { "track_num": 8, "title": "Rotation", "score": "8" },
-        { "track_num": 9, "title": "Slave Master", "score": "6.5" },
-        { "track_num": 10, "title": "Blow a Bag", "score": "9" },
-        { "track_num": 11, "title": "Colossal", "score": "7.5" },
-        { "track_num": 12, "title": "Rich $ex", "score": "9.5" },
-        { "track_num": 13, "title": "Blood On the Money", "score": "6" },
-        { "track_num": 14, "title": "Trap Ni**as", "score": "7" },
-        { "track_num": 15, "title": "The Percocet & Stripper Joint", "score": "10" },
-        { "track_num": 16, "title": "Real Sisters", "score": "9.5" },
-        { "track_num": 17, "title": "Kno The Meaning", "score": "8.5" },
-        { "track_num": 18, "title": "Fuck Up Some Commas", "score": "10" }
-      ]
-    },
-    {
       "reviewer": "luke",
       "album_clean": "DS2",
       "artist_clean": "Future",
@@ -537,3 +498,5 @@
         { "track_num": 18, "title": "Fuck Up Some Commas", "score": "10" }
       ]
     }
+  ]
+}
