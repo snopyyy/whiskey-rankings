@@ -497,6 +497,88 @@
         { "track_num": 17, "title": "Kno The Meaning", "score": "8.5" },
         { "track_num": 18, "title": "Fuck Up Some Commas", "score": "10" }
       ]
+    },
+    {
+      "reviewer": "bennett",
+      "album_clean": "Die Lit",
+      "artist_clean": "Playboi Carti",
+      "album_score": "8",
+      "avg_song_score": "",
+      "genres": [
+        "trap",
+        "cloud rap"
+      ],
+      "media_links": {
+        "Apple Music": "https://geo.music.apple.com/us/album/die-lit/1381553184",
+        "Spotify": "https://open.spotify.com/album/7dAm8ShwJLFm9SaJ6Yc58O",
+        "Soundcloud": "https://soundcloud.com/southatlantababy/die-lit"
+      },
+      "year": "2018",
+      "youtube_url": "https://www.youtube.com/watch?v=BNLKxEw45Z0",
+      "video_date": "2026-10-31",
+      "cover_url": "https://cdn.sonemic.net/i/600/w/5ff4f4574039018f382bc7d5bf78b4c8/7212299/playboi-carti-die-lit-Cover-Art.jpg",
+      "tracks": [
+        { "track_num": 1, "title": "Long Time - Intro", "score": "9.5" },
+        { "track_num": 2, "title": "R.I.P", "score": "9" },
+        { "track_num": 3, "title": "Lean 4 Real", "score": "7.5" },
+        { "track_num": 4, "title": "Old Money", "score": "10" },
+        { "track_num": 5, "title": "Love Hurts", "score": "7" },
+        { "track_num": 6, "title": "Shoota", "score": "10" },
+        { "track_num": 7, "title": "Right Now", "score": "8.5" },
+        { "track_num": 8, "title": "Poke It Out", "score": "7" },
+        { "track_num": 9, "title": "Home (KOD)", "score": "6" },
+        { "track_num": 10, "title": "Fell In Luv", "score": "10" },
+        { "track_num": 11, "title": "Foreign", "score": "7.5" },
+        { "track_num": 12, "title": "Pull Up", "score": "3.5" },
+        { "track_num": 13, "title": "Mileage", "score": "5.5" },
+        { "track_num": 14, "title": "FlatBed Freestyle", "score": "9" },
+        { "track_num": 15, "title": "No Time", "score": "9.5" },
+        { "track_num": 16, "title": "Middle Of The Summer", "score": "7" },
+        { "track_num": 17, "title": "Choppa Won't Miss", "score": "8.75" },
+        { "track_num": 18, "title": "R.I.P Fredo", "score": "8" },
+        { "track_num": 19, "title": "Top", "score": "4" }
+      ]
+    },
+    {
+      "reviewer": "luke",
+      "album_clean": "Die Lit",
+      "artist_clean": "Playboi Carti",
+      "album_score": "8.5",
+      "avg_song_score": "",
+      "genres": [
+        "trap",
+        "cloud rap"
+      ],
+      "media_links": {
+        "Apple Music": "https://geo.music.apple.com/us/album/die-lit/1381553184",
+        "Spotify": "https://open.spotify.com/album/7dAm8ShwJLFm9SaJ6Yc58O",
+        "Soundcloud": "https://soundcloud.com/southatlantababy/die-lit"
+      },
+      "year": "2018",
+      "youtube_url": "https://www.youtube.com/watch?v=BNLKxEw45Z0",
+      "video_date": "2026-10-31",
+      "cover_url": "https://cdn.sonemic.net/i/600/w/5ff4f4574039018f382bc7d5bf78b4c8/7212299/playboi-carti-die-lit-Cover-Art.jpg",
+      "tracks": [
+        { "track_num": 1, "title": "Long Time - Intro", "score": "9.5" },
+        { "track_num": 2, "title": "R.I.P", "score": "8.5" },
+        { "track_num": 3, "title": "Lean 4 Real", "score": "7" },
+        { "track_num": 4, "title": "Old Money", "score": "8.5" },
+        { "track_num": 5, "title": "Love Hurts", "score": "8" },
+        { "track_num": 6, "title": "Shoota", "score": "10" },
+        { "track_num": 7, "title": "Right Now", "score": "8" },
+        { "track_num": 8, "title": "Poke It Out", "score": "7" },
+        { "track_num": 9, "title": "Home (KOD)", "score": "6" },
+        { "track_num": 10, "title": "Fell In Luv", "score": "9.5" },
+        { "track_num": 11, "title": "Foreign", "score": "8" },
+        { "track_num": 12, "title": "Pull Up", "score": "4" },
+        { "track_num": 13, "title": "Mileage", "score": "N/A" },
+        { "track_num": 14, "title": "FlatBed Freestyle", "score": "9" },
+        { "track_num": 15, "title": "No Time", "score": "N/A" },
+        { "track_num": 16, "title": "Middle Of The Summer", "score": "8" },
+        { "track_num": 17, "title": "Choppa Won't Miss", "score": "8.75" },
+        { "track_num": 18, "title": "R.I.P Fredo - Notice Me", "score": "8" },
+        { "track_num": 19, "title": "Top", "score": "N/A" }
+      ]
     }
   ]
 }
