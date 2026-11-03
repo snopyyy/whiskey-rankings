@@ -188,37 +188,68 @@
             renderContent();
         }
 
-        function getSortableScore(scoreStr) {
-            if (!scoreStr) return -1;
-            const num = parseFloat(scoreStr);
-            if (!isNaN(num)) return num;
-            const map = { "favorite": 10.1, "hard": 9.2, "really good": 8.5, "good": 7.5, "mid": 5.0, "skip": 2.0, "n/a": -1 };
-            return map[scoreStr.toLowerCase().trim()] ?? -1;
+        function isNumericScore(scoreStr) {
+            if (scoreStr === null || scoreStr === undefined) return false;
+            const cleaned = String(scoreStr).replace("/10", "").trim();
+            if (cleaned === "") return false;
+            return !isNaN(Number(cleaned));
+        }
+
+        function getNumericValue(scoreStr) {
+            return Number(String(scoreStr).replace("/10", "").trim());
+        }
+
+        function getTextRankValue(scoreStr) {
+            if (!scoreStr) return 0;
+            const cleaned = String(scoreStr).replace("/10", "").toLowerCase().trim();
+            const map = { "favorite": 6, "favourite": 6, "hard": 5, "really good": 4, "good": 3, "mid": 2, "skip": 1, "n/a": 0 };
+            return map[cleaned] ?? 0;
+        }
+
+        function compareScores(scoreA, scoreB, direction = "desc") {
+            const isNumA = isNumericScore(scoreA);
+            const isNumB = isNumericScore(scoreB);
+
+            if (isNumA && !isNumB) return -1;
+            if (!isNumA && isNumB) return 1;
+
+            if (isNumA && isNumB) {
+                const numA = getNumericValue(scoreA);
+                const numB = getNumericValue(scoreB);
+                return direction === "desc" ? numB - numA : numA - numB;
+            }
+
+            const textA = getTextRankValue(scoreA);
+            const textB = getTextRankValue(scoreB);
+            if (textA === 0 && textB !== 0) return 1;
+            if (textB === 0 && textA !== 0) return -1;
+            return direction === "desc" ? textB - textA : textA - textB;
         }
 
         function computeAverageTrackScore(tracks) {
-            const numericScores = tracks.map(t => parseFloat(t.score)).filter(n => !isNaN(n));
+            const numericScores = tracks.filter(t => isNumericScore(t.score)).map(t => getNumericValue(t.score));
             return numericScores.length === 0 ? null : (numericScores.reduce((a, b) => a + b, 0) / numericScores.length).toFixed(1);
         }
 
         function formatScoreDisplay(scoreStr) {
-            if (!scoreStr || scoreStr.trim() === "") return "N/A";
-            const num = parseFloat(scoreStr);
-            return !isNaN(num) ? `${scoreStr}/10` : scoreStr;
+            if (!scoreStr || String(scoreStr).trim() === "") return "N/A";
+            const cleaned = String(scoreStr).replace("/10", "").trim();
+            return isNumericScore(cleaned) ? `${cleaned}/10` : cleaned;
         }
 
         function getScoreColor(scoreStr) {
-            if (!scoreStr || scoreStr.trim() === "") return "text-neutral-500";
-            const num = parseFloat(scoreStr);
-            if (!isNaN(num)) {
+            if (!scoreStr || String(scoreStr).trim() === "") return "text-neutral-500";
+            const cleaned = String(scoreStr).replace("/10", "").trim();
+            if (isNumericScore(cleaned)) {
+                const num = Number(cleaned);
                 if (num === 10) return "text-purple-600 dark:text-purple-400 font-bold";
                 if (num >= 9.0) return "text-emerald-600 dark:text-emerald-400 font-semibold";
                 if (num >= 7.5) return "text-green-600 dark:text-green-400";
                 if (num >= 6.0) return "text-amber-600 dark:text-yellow-400";
                 return "text-red-600 dark:text-red-400";
             }
-            const lower = scoreStr.toLowerCase().trim();
-            if (lower === "favorite") return "text-purple-600 dark:text-purple-400 font-bold";
+            const lower = cleaned.toLowerCase();
+            if (lower === "favorite" || lower === "favourite") return "text-purple-600 dark:text-purple-400 font-bold";
             if (lower === "hard") return "text-emerald-600 dark:text-emerald-400 font-semibold";
             if (lower === "really good" || lower === "good") return "text-green-600 dark:text-green-400";
             if (lower === "mid") return "text-amber-600 dark:text-yellow-400";
@@ -277,7 +308,8 @@
             const genre = document.getElementById("genreFilter").value;
             const sortMode = document.getElementById("songSort").value;
 
-            let allSongs = [];
+            let numericSongs = [];
+            let textSongs = [];
 
             rawData.albums.forEach(album => {
                 const matchReviewer = (album.reviewer || "bennett").toLowerCase() === currentReviewer;
@@ -287,43 +319,52 @@
                 if (!matchesGenre) return;
 
                 album.tracks.forEach(track => {
-                    const sortable = getSortableScore(track.score);
-                    if (sortable === -1) return;
+                    const cleanedScore = String(track.score || "").replace("/10", "").trim();
+                    if (!cleanedScore || cleanedScore.toLowerCase() === "n/a") return;
 
                     const matchTitle = track.title.toLowerCase().includes(search);
                     const matchAlbum = album.album_clean.toLowerCase().includes(search);
                     const matchArtist = album.artist_clean.toLowerCase().includes(search);
 
                     if (!search || matchTitle || matchAlbum || matchArtist) {
-                        allSongs.push({
+                        const songItem = {
                             title: track.title,
-                            score: track.score,
-                            sortableScore: sortable,
+                            score: cleanedScore,
                             track_num: track.track_num,
                             album_clean: album.album_clean,
                             artist_clean: album.artist_clean,
                             cover_url: album.cover_url,
                             youtube_url: album.youtube_url,
                             year: album.year
-                        });
+                        };
+                        if (isNumericScore(cleanedScore)) {
+                            numericSongs.push(songItem);
+                        } else {
+                            textSongs.push(songItem);
+                        }
                     }
                 });
             });
 
-            allSongs.sort((s1, s2) => {
+            const sortFn = (s1, s2) => {
                 if (sortMode === "score-desc") {
-                    const diff = s2.sortableScore - s1.sortableScore;
-                    return diff !== 0 ? diff : s1.title.localeCompare(s2.title);
+                    const cmp = compareScores(s1.score, s2.score, "desc");
+                    return cmp !== 0 ? cmp : s1.title.localeCompare(s2.title);
                 }
                 if (sortMode === "score-asc") {
-                    const diff = s1.sortableScore - s2.sortableScore;
-                    return diff !== 0 ? diff : s1.title.localeCompare(s2.title);
+                    const cmp = compareScores(s1.score, s2.score, "asc");
+                    return cmp !== 0 ? cmp : s1.title.localeCompare(s2.title);
                 }
                 if (sortMode === "title-asc") {
                     return s1.title.localeCompare(s2.title);
                 }
                 return 0;
-            });
+            };
+
+            numericSongs.sort(sortFn);
+            textSongs.sort(sortFn);
+
+            const allSongs = [...numericSongs, ...textSongs];
 
             const container = document.getElementById("albumsContainer");
             if (allSongs.length === 0) {
@@ -375,9 +416,9 @@
             filtered.sort((a, b) => {
                 if (sortMode === "date-desc") return new Date(b.video_date) - new Date(a.video_date);
                 if (sortMode === "date-asc") return new Date(a.video_date) - new Date(b.video_date);
-                if (sortMode === "score-desc") return (parseFloat(b.album_score) || -1) - (parseFloat(a.album_score) || -1);
-                if (sortMode === "score-asc") return (parseFloat(a.album_score) || -1) - (parseFloat(b.album_score) || -1);
-                if (sortMode === "avg-desc") return (parseFloat(b.avg_song_score) || -1) - (parseFloat(a.avg_song_score) || -1);
+                if (sortMode === "score-desc") return compareScores(a.album_score, b.album_score, "desc");
+                if (sortMode === "score-asc") return compareScores(a.album_score, b.album_score, "asc");
+                if (sortMode === "avg-desc") return compareScores(a.avg_song_score, b.avg_song_score, "desc");
                 return 0;
             });
 
@@ -393,15 +434,12 @@
                 const sortedTracks = [...album.tracks].sort((t1, t2) => {
                     if (tSort === "chrono") return t1.track_num - t2.track_num;
                     if (tSort === "rating-desc") {
-                        const diff = getSortableScore(t2.score) - getSortableScore(t1.score);
-                        return diff !== 0 ? diff : t1.track_num - t2.track_num;
+                        const cmp = compareScores(t1.score, t2.score, "desc");
+                        return cmp !== 0 ? cmp : t1.track_num - t2.track_num;
                     }
                     if (tSort === "rating-asc") {
-                        const s1 = getSortableScore(t1.score), s2 = getSortableScore(t2.score);
-                        if (s1 === -1 && s2 === -1) return t1.track_num - t2.track_num;
-                        if (s1 === -1) return 1;
-                        if (s2 === -1) return -1;
-                        return s1 - s2;
+                        const cmp = compareScores(t1.score, t2.score, "asc");
+                        return cmp !== 0 ? cmp : t1.track_num - t2.track_num;
                     }
                     return 0;
                 });
