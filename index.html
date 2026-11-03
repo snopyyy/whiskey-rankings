@@ -12,7 +12,6 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; }
-        .patreon-glow:hover { box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.7); }
     </style>
 </head>
 <body class="min-h-screen antialiased bg-neutral-100 text-neutral-900 dark:bg-[#111111] dark:text-[#eaeaea] transition-colors duration-200">
@@ -36,6 +35,15 @@
                 <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-1">Album & track ratings archive</p>
             </div>
             <div class="flex items-center gap-3 text-xs font-medium">
+                <div class="inline-flex rounded border border-neutral-300 dark:border-neutral-700 bg-neutral-200 dark:bg-neutral-800 p-0.5">
+                    <button id="viewAlbumsBtn" onclick="setViewMode('albums')" class="px-2.5 py-1 rounded text-xs font-medium transition bg-white dark:bg-[#111111] text-neutral-900 dark:text-white shadow-sm">
+                        Albums
+                    </button>
+                    <button id="viewSongsBtn" onclick="setViewMode('songs')" class="px-2.5 py-1 rounded text-xs font-medium transition text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white">
+                        Top Songs
+                    </button>
+                </div>
+
                 <div class="relative group">
                     <button class="px-3 py-1.5 bg-neutral-200 hover:bg-neutral-300 dark:bg-neutral-800 dark:hover:bg-neutral-700 text-neutral-800 dark:text-neutral-200 rounded border border-neutral-300 dark:border-neutral-700 transition flex items-center gap-1">
                         Download ▾
@@ -47,11 +55,6 @@
                         </div>
                     </div>
                 </div>
-
-                <a href="https://www.youtube.com/@WhiskeyMusikk" target="_blank" class="px-3 py-1.5 bg-neutral-900 hover:bg-neutral-700 text-white dark:bg-white dark:hover:bg-neutral-200 dark:text-black font-semibold rounded transition flex items-center gap-1.5">
-                    <img src="src/img/youtube.png" alt="YouTube" class="w-4 h-4 object-contain">
-                    YouTube Channel
-                </a>
             </div>
         </header>
 
@@ -70,6 +73,12 @@
                 <option value="score-asc">Album Score: Low to High</option>
                 <option value="avg-desc">Track Avg: High to Low</option>
             </select>
+
+            <select id="songSort" class="hidden px-3 py-2 bg-white dark:bg-[#1a1a1a] border border-neutral-300 dark:border-neutral-800 rounded text-sm text-neutral-800 dark:text-neutral-200 focus:outline-none focus:border-neutral-500">
+                <option value="score-desc">Song Score: High to Low</option>
+                <option value="score-asc">Song Score: Low to High</option>
+                <option value="title-asc">Title: A to Z</option>
+            </select>
         </div>
 
         <div id="albumsContainer" class="space-y-3"></div>
@@ -81,10 +90,40 @@
             <span id="themeText">Light Mode</span>
         </button>
 
-        <a href="https://www.patreon.com/cw/WhiskeyMusikk" target="_blank" class="patreon-glow px-3.5 py-2 rounded-full bg-white dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 border border-neutral-300 dark:border-neutral-700 shadow-md text-xs font-medium hover:bg-neutral-100 dark:hover:bg-neutral-700 transition flex items-center gap-2">
-            <img src="src/img/patreon.png" alt="Patreon" class="w-4 h-4 object-contain">
-            <span>Patreon</span>
-        </a>
+        <div class="relative" id="linksMenuWrapper">
+            <button onclick="toggleLinksPopup(event)" class="px-3.5 py-2 rounded-full bg-white dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 border border-neutral-300 dark:border-neutral-700 shadow-md text-xs font-medium hover:bg-neutral-100 dark:hover:bg-neutral-700 transition flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-neutral-600 dark:text-neutral-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/>
+                </svg>
+                <span>Links</span>
+            </button>
+
+            <div id="linksPopup" class="hidden absolute bottom-full left-0 mb-2 w-48 bg-white dark:bg-[#1a1a1a] border border-neutral-300 dark:border-neutral-800 rounded-lg shadow-xl py-2 z-50 text-xs">
+                <div class="px-3 pb-1.5 mb-1 border-b border-neutral-200 dark:border-neutral-800 text-[11px] font-semibold text-neutral-400 dark:text-neutral-500 uppercase tracking-wider">
+                    All Links
+                </div>
+                <a href="https://discord.gg/Mc6kshMd5E" target="_blank" class="flex items-center gap-2.5 px-3 py-1.5 hover:bg-neutral-100 dark:hover:bg-neutral-800 text-neutral-800 dark:text-neutral-200 transition">
+                    <img src="src/img/discord.png" alt="Discord" class="w-4 h-4 object-contain">
+                    <span>Discord</span>
+                </a>
+                <a href="https://www.instagram.com/whiskeymusikk/" target="_blank" class="flex items-center gap-2.5 px-3 py-1.5 hover:bg-neutral-100 dark:hover:bg-neutral-800 text-neutral-800 dark:text-neutral-200 transition">
+                    <img src="src/img/instagram.png" alt="Instagram" class="w-4 h-4 object-contain">
+                    <span>Instagram</span>
+                </a>
+                <a href="https://www.patreon.com/cw/WhiskeyMusikk" target="_blank" class="flex items-center gap-2.5 px-3 py-1.5 hover:bg-neutral-100 dark:hover:bg-neutral-800 text-neutral-800 dark:text-neutral-200 transition">
+                    <img src="src/img/patreon.png" alt="Patreon" class="w-4 h-4 object-contain">
+                    <span>Patreon</span>
+                </a>
+                <a href="https://www.tiktok.com/@whiskeymusikk" target="_blank" class="flex items-center gap-2.5 px-3 py-1.5 hover:bg-neutral-100 dark:hover:bg-neutral-800 text-neutral-800 dark:text-neutral-200 transition">
+                    <img src="src/img/tiktok.png" alt="TikTok" class="w-4 h-4 object-contain">
+                    <span>TikTok</span>
+                </a>
+                <a href="https://www.youtube.com/@WhiskeyMusikk" target="_blank" class="flex items-center gap-2.5 px-3 py-1.5 hover:bg-neutral-100 dark:hover:bg-neutral-800 text-neutral-800 dark:text-neutral-200 transition">
+                    <img src="src/img/youtube.png" alt="YouTube" class="w-4 h-4 object-contain">
+                    <span>YouTube</span>
+                </a>
+            </div>
+        </div>
 
         <div class="relative group flex items-center">
             <span class="w-5 h-5 rounded-full bg-white dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 border border-neutral-300 dark:border-neutral-700 shadow-md text-[11px] font-bold flex items-center justify-center cursor-help">i</span>
@@ -97,6 +136,7 @@
     <script>
         let rawData = { albums: [] };
         let currentReviewer = "bennett";
+        let currentView = "albums";
         const openStates = {};
         const trackSortModes = {};
 
@@ -106,12 +146,46 @@
             document.getElementById("themeText").textContent = isDark ? "Light Mode" : "Dark Mode";
         }
 
+        function toggleLinksPopup(e) {
+            e.stopPropagation();
+            document.getElementById("linksPopup").classList.toggle("hidden");
+        }
+
+        document.addEventListener("click", (e) => {
+            const wrapper = document.getElementById("linksMenuWrapper");
+            const popup = document.getElementById("linksPopup");
+            if (wrapper && !wrapper.contains(e.target)) {
+                popup.classList.add("hidden");
+            }
+        });
+
         function switchReviewer() {
             currentReviewer = currentReviewer === "bennett" ? "luke" : "bennett";
             const name = currentReviewer === "bennett" ? "Bennett" : "Luke";
             document.getElementById("reviewerLabel").textContent = `Ranked by ${name}`;
             populateGenres();
-            renderAlbums();
+            renderContent();
+        }
+
+        function setViewMode(mode) {
+            currentView = mode;
+            const albumsBtn = document.getElementById("viewAlbumsBtn");
+            const songsBtn = document.getElementById("viewSongsBtn");
+            const albumSort = document.getElementById("albumSort");
+            const songSort = document.getElementById("songSort");
+
+            if (mode === "albums") {
+                albumsBtn.className = "px-2.5 py-1 rounded text-xs font-medium transition bg-white dark:bg-[#111111] text-neutral-900 dark:text-white shadow-sm";
+                songsBtn.className = "px-2.5 py-1 rounded text-xs font-medium transition text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white";
+                albumSort.classList.remove("hidden");
+                songSort.classList.add("hidden");
+            } else {
+                songsBtn.className = "px-2.5 py-1 rounded text-xs font-medium transition bg-white dark:bg-[#111111] text-neutral-900 dark:text-white shadow-sm";
+                albumsBtn.className = "px-2.5 py-1 rounded text-xs font-medium transition text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white";
+                albumSort.classList.add("hidden");
+                songSort.classList.remove("hidden");
+            }
+            renderContent();
         }
 
         function getSortableScore(scoreStr) {
@@ -188,6 +262,97 @@
         function setTrackSort(uid, mode) {
             trackSortModes[uid] = mode;
             renderAlbums();
+        }
+
+        function renderContent() {
+            if (currentView === "albums") {
+                renderAlbums();
+            } else {
+                renderTopSongs();
+            }
+        }
+
+        function renderTopSongs() {
+            const search = document.getElementById("searchInput").value.toLowerCase().trim();
+            const genre = document.getElementById("genreFilter").value;
+            const sortMode = document.getElementById("songSort").value;
+
+            let allSongs = [];
+
+            rawData.albums.forEach(album => {
+                const matchReviewer = (album.reviewer || "bennett").toLowerCase() === currentReviewer;
+                if (!matchReviewer) return;
+
+                const matchesGenre = genre === "all" || album.genres.some(g => g.toLowerCase().trim() === genre);
+                if (!matchesGenre) return;
+
+                album.tracks.forEach(track => {
+                    const sortable = getSortableScore(track.score);
+                    if (sortable === -1) return;
+
+                    const matchTitle = track.title.toLowerCase().includes(search);
+                    const matchAlbum = album.album_clean.toLowerCase().includes(search);
+                    const matchArtist = album.artist_clean.toLowerCase().includes(search);
+
+                    if (!search || matchTitle || matchAlbum || matchArtist) {
+                        allSongs.push({
+                            title: track.title,
+                            score: track.score,
+                            sortableScore: sortable,
+                            track_num: track.track_num,
+                            album_clean: album.album_clean,
+                            artist_clean: album.artist_clean,
+                            cover_url: album.cover_url,
+                            youtube_url: album.youtube_url,
+                            year: album.year
+                        });
+                    }
+                });
+            });
+
+            allSongs.sort((s1, s2) => {
+                if (sortMode === "score-desc") {
+                    const diff = s2.sortableScore - s1.sortableScore;
+                    return diff !== 0 ? diff : s1.title.localeCompare(s2.title);
+                }
+                if (sortMode === "score-asc") {
+                    const diff = s1.sortableScore - s2.sortableScore;
+                    return diff !== 0 ? diff : s1.title.localeCompare(s2.title);
+                }
+                if (sortMode === "title-asc") {
+                    return s1.title.localeCompare(s2.title);
+                }
+                return 0;
+            });
+
+            const container = document.getElementById("albumsContainer");
+            if (allSongs.length === 0) {
+                container.innerHTML = `<div class="py-12 text-center text-sm text-neutral-500">No rated songs found for ${currentReviewer === 'bennett' ? 'Bennett' : 'Luke'}.</div>`;
+                return;
+            }
+
+            container.innerHTML = `
+                <div class="bg-white dark:bg-[#181818] border border-neutral-300 dark:border-neutral-800 rounded divide-y divide-neutral-200 dark:divide-neutral-800">
+                    ${allSongs.map((song, idx) => `
+                        <div class="p-3 sm:px-4 flex items-center justify-between gap-4 hover:bg-neutral-50 dark:hover:bg-[#1d1d1d] transition">
+                            <div class="flex items-center gap-3.5 min-w-0">
+                                <span class="w-6 text-xs font-mono text-neutral-400 dark:text-neutral-500 text-right flex-shrink-0">#${idx + 1}</span>
+                                <img src="${song.cover_url}" alt="${song.album_clean}" class="w-10 h-10 rounded object-cover flex-shrink-0 bg-neutral-200 dark:bg-neutral-900">
+                                <div class="min-w-0">
+                                    <div class="text-sm font-medium text-neutral-900 dark:text-white truncate">${song.title}</div>
+                                    <div class="text-xs text-neutral-500 dark:text-neutral-400 truncate">${song.artist_clean} <span class="text-neutral-300 dark:text-neutral-600">•</span> ${song.album_clean} (${song.year})</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3 flex-shrink-0">
+                                <span class="text-sm ${getScoreColor(song.score)}">${formatScoreDisplay(song.score)}</span>
+                                <a href="${song.youtube_url}" target="_blank" title="Watch Reaction" class="p-1.5 bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 rounded transition">
+                                    <img src="src/img/youtube.png" alt="YouTube" class="w-3.5 h-3.5 object-contain">
+                                </a>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
         }
 
         function renderAlbums() {
@@ -370,17 +535,18 @@
 
         window.addEventListener("DOMContentLoaded", async () => {
             try {
-                const res = await fetch("rankings.json");
+                const res = await fetch(`rankings.json?t=${Date.now()}`);
                 rawData = await res.json();
             } catch (err) {
                 console.error("Failed to load rankings.json:", err);
             }
             prepareData();
             populateGenres();
-            renderAlbums();
-            document.getElementById("searchInput").addEventListener("input", renderAlbums);
-            document.getElementById("genreFilter").addEventListener("change", renderAlbums);
-            document.getElementById("albumSort").addEventListener("change", renderAlbums);
+            renderContent();
+            document.getElementById("searchInput").addEventListener("input", renderContent);
+            document.getElementById("genreFilter").addEventListener("change", renderContent);
+            document.getElementById("albumSort").addEventListener("change", renderContent);
+            document.getElementById("songSort").addEventListener("change", renderContent);
         });
     </script>
 </body>
