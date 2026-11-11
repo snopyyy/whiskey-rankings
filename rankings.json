@@ -503,7 +503,7 @@
       "album_clean": "Die Lit",
       "artist_clean": "Playboi Carti",
       "album_score": "8",
-      "avg_song_score": "",
+      "avg_song_score": "7.8",
       "genres": [
         "trap",
         "cloud rap"
@@ -544,7 +544,7 @@
       "album_clean": "Die Lit",
       "artist_clean": "Playboi Carti",
       "album_score": "8.5",
-      "avg_song_score": "",
+      "avg_song_score": "8.0",
       "genres": [
         "trap",
         "cloud rap"
@@ -578,6 +578,76 @@
         { "track_num": 17, "title": "Choppa Won't Miss", "score": "8.75" },
         { "track_num": 18, "title": "R.I.P Fredo - Notice Me", "score": "8" },
         { "track_num": 19, "title": "Top", "score": "N/A" }
+      ]
+    },
+    {
+      "reviewer": "bennett",
+      "album_clean": "My Beautiful Dark Twisted Fantasy",
+      "artist_clean": "Kanye West",
+      "album_score": "8.75",
+      "avg_song_score": "8.6",
+      "genres": [
+        "hip hop",
+        "pop rap"
+      ],
+      "media_links": {
+        "Apple Music": "https://music.apple.com/us/album/my-beautiful-dark-twisted-fantasy/1440742903",
+        "Spotify": "https://open.spotify.com/album/20r762YmB5HeofjMCiPMLv",
+        "Soundcloud": "https://soundcloud.com/kanyewest/sets/my-beautiful-dark-twisted-2"
+      },
+      "year": "2010",
+      "youtube_url": "https://www.youtube.com/watch?v=VsVG1MMXjMk",
+      "video_date": "2026-11-10",
+      "cover_url": "https://cdn.sonemic.net/i/600/w/df403c9ad1c5a31a42f6a65785189fec/14331634/kanye-west-my-beautiful-dark-twisted-fantasy-Cover-Art.jpg",
+      "tracks": [
+        { "track_num": 1, "title": "Dark Fantasy", "score": "9" },
+        { "track_num": 2, "title": "Gorgeous", "score": "10" },
+        { "track_num": 3, "title": "POWER", "score": "9.75" },
+        { "track_num": 4, "title": "All Of The Lights (Interlude)", "score": "N/A" },
+        { "track_num": 5, "title": "All Of The Lights", "score": "10" },
+        { "track_num": 6, "title": "Monster", "score": "8" },
+        { "track_num": 7, "title": "So Appalled", "score": "10" },
+        { "track_num": 8, "title": "Devil In A New Dress", "score": "10" },
+        { "track_num": 9, "title": "Runaway", "score": "10" },
+        { "track_num": 10, "title": "Hell Of A Life", "score": "8" },
+        { "track_num": 11, "title": "Blame Game", "score": "5" },
+        { "track_num": 12, "title": "Lost In The World", "score": "4.5" },
+        { "track_num": 13, "title": "Who Will Survive In America", "score": "N/A" }
+      ]
+    },
+    {
+      "reviewer": "luke",
+      "album_clean": "My Beautiful Dark Twisted Fantasy",
+      "artist_clean": "Kanye West",
+      "album_score": "9.5",
+      "avg_song_score": "8.8",
+      "genres": [
+        "hip hop",
+        "pop rap"
+      ],
+      "media_links": {
+        "Apple Music": "https://music.apple.com/us/album/my-beautiful-dark-twisted-fantasy/1440742903",
+        "Spotify": "https://open.spotify.com/album/20r762YmB5HeofjMCiPMLv",
+        "Soundcloud": "https://soundcloud.com/kanyewest/sets/my-beautiful-dark-twisted-2"
+      },
+      "year": "2010",
+      "youtube_url": "https://www.youtube.com/watch?v=VsVG1MMXjMk",
+      "video_date": "2026-11-10",
+      "cover_url": "https://cdn.sonemic.net/i/600/w/df403c9ad1c5a31a42f6a65785189fec/14331634/kanye-west-my-beautiful-dark-twisted-fantasy-Cover-Art.jpg",
+      "tracks": [
+        { "track_num": 1, "title": "Dark Fantasy", "score": "9" },
+        { "track_num": 2, "title": "Gorgeous", "score": "9" },
+        { "track_num": 3, "title": "POWER", "score": "9.5" },
+        { "track_num": 4, "title": "All Of The Lights (Interlude)", "score": "N/A" },
+        { "track_num": 5, "title": "All Of The Lights", "score": "10" },
+        { "track_num": 6, "title": "Monster", "score": "8" },
+        { "track_num": 7, "title": "So Appalled", "score": "10" },
+        { "track_num": 8, "title": "Devil In A New Dress", "score": "10" },
+        { "track_num": 9, "title": "Runaway", "score": "10" },
+        { "track_num": 10, "title": "Hell Of A Life", "score": "8.5" },
+        { "track_num": 11, "title": "Blame Game", "score": "5.5" },
+        { "track_num": 12, "title": "Lost In The World", "score": "7" },
+        { "track_num": 13, "title": "Who Will Survive In America", "score": "N/A" }
       ]
     }
   ]
