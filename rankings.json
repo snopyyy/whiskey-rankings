@@ -598,7 +598,7 @@
       "year": "2010",
       "youtube_url": "https://www.youtube.com/@WhiskeyMusikk",
       "video_date": "2026-11-11",
-      "cover_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/1c/3a/70/1c3a702f-9283-40c5-1d82-f1fd32b503be/10UMGIM30956.rgb.jpg/600x600bb.jpg",
+      "cover_url": "https://cdn.sonemic.net/i/600/w/df403c9ad1c5a31a42f6a65785189fec/14331634/kanye-west-my-beautiful-dark-twisted-fantasy-Cover-Art.jpg",
       "tracks": [
         { "track_num": 1, "title": "Dark Fantasy", "score": "9" },
         { "track_num": 2, "title": "Gorgeous", "score": "10" },
@@ -633,7 +633,7 @@
       "year": "2010",
       "youtube_url": "https://www.youtube.com/@WhiskeyMusikk",
       "video_date": "2026-11-11",
-      "cover_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/1c/3a/70/1c3a702f-9283-40c5-1d82-f1fd32b503be/10UMGIM30956.rgb.jpg/600x600bb.jpg",
+      "cover_url": "https://cdn.sonemic.net/i/600/w/df403c9ad1c5a31a42f6a65785189fec/14331634/kanye-west-my-beautiful-dark-twisted-fantasy-Cover-Art.jpg",
       "tracks": [
         { "track_num": 1, "title": "Dark Fantasy", "score": "9" },
         { "track_num": 2, "title": "Gorgeous", "score": "9" },
@@ -659,7 +659,6 @@
       "genres": [
         "psychedelic pop",
         "synthpop",
-        "neo-psychedelia"
       ],
       "media_links": {
         "Apple Music": "https://music.apple.com/us/album/currents/1440838039",
@@ -694,8 +693,7 @@
       "avg_song_score": "8.6",
       "genres": [
         "psychedelic pop",
-        "synthpop",
-        "neo-psychedelia"
+        "synthpop"
       ],
       "media_links": {
         "Apple Music": "https://music.apple.com/us/album/currents/1440838039",
