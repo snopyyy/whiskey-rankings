@@ -596,9 +596,9 @@
         "Soundcloud": "https://soundcloud.com/kanyewest/sets/my-beautiful-dark-twisted-2"
       },
       "year": "2010",
-      "youtube_url": "https://www.youtube.com/watch?v=VsVG1MMXjMk",
-      "video_date": "2026-11-10",
-      "cover_url": "https://cdn.sonemic.net/i/600/w/df403c9ad1c5a31a42f6a65785189fec/14331634/kanye-west-my-beautiful-dark-twisted-fantasy-Cover-Art.jpg",
+      "youtube_url": "https://www.youtube.com/@WhiskeyMusikk",
+      "video_date": "2026-11-11",
+      "cover_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/1c/3a/70/1c3a702f-9283-40c5-1d82-f1fd32b503be/10UMGIM30956.rgb.jpg/600x600bb.jpg",
       "tracks": [
         { "track_num": 1, "title": "Dark Fantasy", "score": "9" },
         { "track_num": 2, "title": "Gorgeous", "score": "10" },
@@ -631,9 +631,9 @@
         "Soundcloud": "https://soundcloud.com/kanyewest/sets/my-beautiful-dark-twisted-2"
       },
       "year": "2010",
-      "youtube_url": "https://www.youtube.com/watch?v=VsVG1MMXjMk",
-      "video_date": "2026-11-10",
-      "cover_url": "https://cdn.sonemic.net/i/600/w/df403c9ad1c5a31a42f6a65785189fec/14331634/kanye-west-my-beautiful-dark-twisted-fantasy-Cover-Art.jpg",
+      "youtube_url": "https://www.youtube.com/@WhiskeyMusikk",
+      "video_date": "2026-11-11",
+      "cover_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/1c/3a/70/1c3a702f-9283-40c5-1d82-f1fd32b503be/10UMGIM30956.rgb.jpg/600x600bb.jpg",
       "tracks": [
         { "track_num": 1, "title": "Dark Fantasy", "score": "9" },
         { "track_num": 2, "title": "Gorgeous", "score": "9" },
@@ -648,6 +648,78 @@
         { "track_num": 11, "title": "Blame Game", "score": "5.5" },
         { "track_num": 12, "title": "Lost In The World", "score": "7" },
         { "track_num": 13, "title": "Who Will Survive In America", "score": "N/A" }
+      ]
+    },
+    {
+      "reviewer": "bennett",
+      "album_clean": "Currents",
+      "artist_clean": "Tame Impala",
+      "album_score": "9.5",
+      "avg_song_score": "8.6",
+      "genres": [
+        "psychedelic pop",
+        "synthpop",
+        "neo-psychedelia"
+      ],
+      "media_links": {
+        "Apple Music": "https://music.apple.com/us/album/currents/1440838039",
+        "Spotify": "https://open.spotify.com/album/79dL7FLiJFOO0EoehUHQBv",
+        "Soundcloud": "https://soundcloud.com/tame-impala/sets/currents-9"
+      },
+      "year": "2015",
+      "youtube_url": "https://www.youtube.com/watch?v=GmPh0lh0KVs&t",
+      "video_date": "2026-11-12",
+      "cover_url": "https://cdn.sonemic.net/i/600/w/ea06dc0cd47d5efbed799db833130eaf/14551636/tame-impala-currents-Cover-Art.png",
+      "tracks": [
+        { "track_num": 1, "title": "Let It Happen", "score": "10" },
+        { "track_num": 2, "title": "Nangs", "score": "8" },
+        { "track_num": 3, "title": "The Moment", "score": "9" },
+        { "track_num": 4, "title": "Yes I'm Changing", "score": "10" },
+        { "track_num": 5, "title": "Eventually", "score": "9.5" },
+        { "track_num": 6, "title": "Gossip", "score": "6" },
+        { "track_num": 7, "title": "The Less I Know The Better", "score": "9.5" },
+        { "track_num": 8, "title": "Past Life", "score": "8.5" },
+        { "track_num": 9, "title": "Disciples", "score": "6.75" },
+        { "track_num": 10, "title": "'Cause I'm A Man", "score": "8" },
+        { "track_num": 11, "title": "Reality In Motion", "score": "6" },
+        { "track_num": 12, "title": "Love/Paranoia", "score": "8.75" },
+        { "track_num": 13, "title": "New Person, Same Old Mistakes", "score": "10" }
+      ]
+    },
+    {
+      "reviewer": "luke",
+      "album_clean": "Currents",
+      "artist_clean": "Tame Impala",
+      "album_score": "9.5",
+      "avg_song_score": "8.6",
+      "genres": [
+        "psychedelic pop",
+        "synthpop",
+        "neo-psychedelia"
+      ],
+      "media_links": {
+        "Apple Music": "https://music.apple.com/us/album/currents/1440838039",
+        "Spotify": "https://open.spotify.com/album/79dL7FLiJFOO0EoehUHQBv",
+        "Soundcloud": "https://soundcloud.com/tame-impala/sets/currents-9"
+      },
+      "year": "2015",
+      "youtube_url": "https://www.youtube.com/watch?v=GmPh0lh0KVs&t",
+      "video_date": "2026-11-12",
+      "cover_url": "https://cdn.sonemic.net/i/600/w/ea06dc0cd47d5efbed799db833130eaf/14551636/tame-impala-currents-Cover-Art.png",
+      "tracks": [
+        { "track_num": 1, "title": "Let It Happen", "score": "10" },
+        { "track_num": 2, "title": "Nangs", "score": "8.5" },
+        { "track_num": 3, "title": "The Moment", "score": "9" },
+        { "track_num": 4, "title": "Yes I'm Changing", "score": "10" },
+        { "track_num": 5, "title": "Eventually", "score": "10" },
+        { "track_num": 6, "title": "Gossip", "score": "7" },
+        { "track_num": 7, "title": "The Less I Know The Better", "score": "9.5" },
+        { "track_num": 8, "title": "Past Life", "score": "9" },
+        { "track_num": 9, "title": "Disciples", "score": "7" },
+        { "track_num": 10, "title": "'Cause I'm A Man", "score": "8" },
+        { "track_num": 11, "title": "Reality In Motion", "score": "7" },
+        { "track_num": 12, "title": "Love/Paranoia", "score": "9" },
+        { "track_num": 13, "title": "New Person, Same Old Mistakes", "score": "10" }
       ]
     }
   ]
