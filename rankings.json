@@ -658,7 +658,7 @@
       "avg_song_score": "8.6",
       "genres": [
         "psychedelic pop",
-        "synthpop",
+        "synthpop"
       ],
       "media_links": {
         "Apple Music": "https://music.apple.com/us/album/currents/1440838039",
@@ -690,7 +690,7 @@
       "album_clean": "Currents",
       "artist_clean": "Tame Impala",
       "album_score": "9.5",
-      "avg_song_score": "8.6",
+      "avg_song_score": "8.9",
       "genres": [
         "psychedelic pop",
         "synthpop"
@@ -718,6 +718,86 @@
         { "track_num": 11, "title": "Reality In Motion", "score": "7" },
         { "track_num": 12, "title": "Love/Paranoia", "score": "9" },
         { "track_num": 13, "title": "New Person, Same Old Mistakes", "score": "10" }
+      ]
+    },
+    {
+      "reviewer": "bennett",
+      "album_clean": "LONG.LIVE.A$AP",
+      "artist_clean": "A$AP Rocky",
+      "album_score": "8",
+      "avg_song_score": "8.0",
+      "genres": [
+        "cloud rap",
+        "pop rap",
+        "trap"
+      ],
+      "media_links": {
+        "Apple Music": "https://music.apple.com/us/album/long-live-a%24ap-deluxe-edition/1450690198",
+        "Spotify": "https://open.spotify.com/album/6rzMufuu8sLkIizM4q9c7J",
+        "Soundcloud": "https://soundcloud.com/asvpxrocky/sets/long-live-a-ap-deluxe-2"
+      },
+      "year": "2013",
+      "youtube_url": "https://www.youtube.com/watch?v=2OltEM2lMsA",
+      "video_date": "2026-11-18",
+      "cover_url": "https://cdn.sonemic.net/i/600/w/a9794be7ac926927f5bfb4c27d0c54ca/6608133/a_ap-rocky-long_live_a_ap-Cover-Art.jpg",
+      "tracks": [
+        { "track_num": 1, "title": "Long Live A$AP", "score": "6" },
+        { "track_num": 2, "title": "Goldie", "score": "8.75" },
+        { "track_num": 3, "title": "PMW (All I Really Need)", "score": "9" },
+        { "track_num": 4, "title": "LVL", "score": "10" },
+        { "track_num": 5, "title": "Hell", "score": "6.5" },
+        { "track_num": 6, "title": "Pain", "score": "6.5" },
+        { "track_num": 7, "title": "Fuckin' Problems", "score": "9.25" },
+        { "track_num": 8, "title": "Wild for the Night", "score": "10" },
+        { "track_num": 9, "title": "1Train", "score": "5" },
+        { "track_num": 10, "title": "Fashion Killa", "score": "10" },
+        { "track_num": 11, "title": "Phoenix", "score": "7" },
+        { "track_num": 12, "title": "Suddenly", "score": "8.5" },
+        { "track_num": 13, "title": "Jodye", "score": "6" },
+        { "track_num": 14, "title": "Ghetto Symphony", "score": "8.5" },
+        { "track_num": 15, "title": "Angels", "score": "6.5" },
+        { "track_num": 16, "title": "I Come Apart", "score": "9" },
+        { "track_num": 17, "title": "Purple Swag REMIX", "score": "9" }
+      ]
+    },
+    {
+      "reviewer": "luke",
+      "album_clean": "LONG.LIVE.A$AP",
+      "artist_clean": "A$AP Rocky",
+      "album_score": "8",
+      "avg_song_score": "8.4",
+      "genres": [
+        "cloud rap",
+        "pop rap",
+        "trap"
+      ],
+      "media_links": {
+        "Apple Music": "https://music.apple.com/us/album/long-live-a%24ap-deluxe-edition/1450690198",
+        "Spotify": "https://open.spotify.com/album/6rzMufuu8sLkIizM4q9c7J",
+        "Soundcloud": "https://soundcloud.com/asvpxrocky/sets/long-live-a-ap-deluxe-2"
+      },
+      "year": "2013",
+      "youtube_url": "https://www.youtube.com/watch?v=2OltEM2lMsA",
+      "video_date": "2026-11-18",
+      "cover_url": "https://cdn.sonemic.net/i/600/w/a9794be7ac926927f5bfb4c27d0c54ca/6608133/a_ap-rocky-long_live_a_ap-Cover-Art.jpg",
+      "tracks": [
+        { "track_num": 1, "title": "Long Live A$AP", "score": "7" },
+        { "track_num": 2, "title": "Goldie", "score": "8" },
+        { "track_num": 3, "title": "PMW (All I Really Need)", "score": "8.5" },
+        { "track_num": 4, "title": "LVL", "score": "10" },
+        { "track_num": 5, "title": "Hell", "score": "6.5" },
+        { "track_num": 6, "title": "Pain", "score": "7" },
+        { "track_num": 7, "title": "Fuckin' Problems", "score": "9" },
+        { "track_num": 8, "title": "Wild for the Night", "score": "N/A" },
+        { "track_num": 9, "title": "1Train", "score": "8" },
+        { "track_num": 10, "title": "Fashion Killa", "score": "10" },
+        { "track_num": 11, "title": "Phoenix", "score": "10" },
+        { "track_num": 12, "title": "Suddenly", "score": "8" },
+        { "track_num": 13, "title": "Jodye", "score": "7.5" },
+        { "track_num": 14, "title": "Ghetto Symphony", "score": "8" },
+        { "track_num": 15, "title": "Angels", "score": "9" },
+        { "track_num": 16, "title": "I Come Apart", "score": "9.5" },
+        { "track_num": 17, "title": "Purple Swag REMIX", "score": "10" }
       ]
     }
   ]
